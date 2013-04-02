@@ -280,7 +280,6 @@ style "notebook" = "notebook-bg"
 style "menu" = "dark"
 {
 	ythickness        = 0
-	xthickness        = 4
 	GtkMenuBar	:: shadow-type		= GTK_SHADOW_NONE
 	
 	engine "murrine" 
@@ -299,7 +298,6 @@ style "menu-item" = "menu" {
 
 style "menubar" = "menu"
 {
-	xthickness	= 4
 	ythickness	= 2
 	
 	bg[NORMAL]	= @bg_color
@@ -315,7 +313,7 @@ style "menubar" = "menu"
 style "menubar-menuitem"
 {
 	ythickness        = 4
-	xthickness        = 2
+	xthickness        = 4
 	
 	bg[PRELIGHT]   = @selected_bg_color
 	bg[SELECTED]   = @selected_bg_color
