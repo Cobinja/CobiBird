@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=CobiBird
+Comment=CobiBird theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=CobiBird
+MetacityTheme=CobiBird
+IconTheme=elementary-xfce-dark
+CursorTheme=DMZ-White
+ButtonLayout=:minimize,maximize,close

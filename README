@@ -1,0 +1,23 @@
+Name: CobiBird
+Summary: Desktop Suite for Gtk-based Dekstops.
+
+Copyright 2009–2012 Simon Steinbeiß and Satyajit Sahoo
+Copyright 2013 Lars Mueller
+CobiBird is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
+
+Desktop Suite for Gtk-based Dekstops.
+
+The CobiBird desktop suite includes:
+– GTK2 theme
+– GTK3 theme
+– Xfwm4 themes (normal and compact)
+– xfce-notifyd theme
+– Emerald theme
+– Metacity theme
+– Mutter theme
+– Xubuntu 11.04 wallpaper (svg and png)
+– Unity support
+– Granite widgets support
+
+Dependencies of gtk3.2-branch (for Gtk3.2)
+– gtk2-engines-murrine (v0.90)
