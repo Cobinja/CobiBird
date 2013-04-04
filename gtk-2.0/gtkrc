@@ -138,10 +138,10 @@ style "default"
 		menuitemstyle       = 0                 # 0 = flat, 1 = glassy, 2 = striped
 		menustyle           = 0                 # 0 = no vertical menu stripe, 1 = display vertical menu stripe
 		prelight_shade      = .9               # shade level for scrollbar's slider, comboboxstyle(1), and prelight state with gradient_colors		
-		progressbarstyle    = 1                 # 0 = nothing, 1 = stripes, 2 = lines
+		progressbarstyle    = 0                 # 0 = nothing, 1 = stripes, 2 = lines
 		reliefstyle         = 3                 # 0 = flat, 1 = inset, 2 = shadow
 		rgba                = FALSE             # FALSE = disabled, TRUE = enabled
-		roundness           = 2                 # 0 = squared, 1 = old default, more will increase roundness
+		roundness           = 1                 # 0 = squared, 1 = old default, more will increase roundness
 		scrollbarstyle      = 0                 # 0 = nothing, 1 = circles, 2 = handles, 3 = diagonal stripes, 4 = diagonal stripes and handles, 5 = horizontal stripes, 6 = horizontal stripes and handles
 		separatorstyle      = 1                 # 0 = Hard seperators 1 = Smooth seperators
 		sliderstyle         = 0                 # 0 = nothing added, 1 = handles
@@ -384,7 +384,7 @@ style "tooltips" = "wider"
 
 	engine "murrine"
 	{
-		roundness	= 0
+		roundness	= 1
 		trough_shades	= { 0.15, 0.3 }
 	}
 }
@@ -403,7 +403,7 @@ style "progressbar"
 		gradient_shades = {1.15,1.05,1.0,0.95}
 		trough_shades	= {0.95, 1.15}
 		trough_border_shades	= { 0.8, 0.7 }
-		roundness 	= 4
+		roundness 	= 1
 		contrast	= 0.8
 		border_shades	= { 1.0, 0.8 }
 		lightborder_shade   = 1.1
