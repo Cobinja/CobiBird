@@ -57,3 +57,8 @@
 @import url("apps/unity.css");
 @import url("apps/lightdm-unity-greeter.css");
 @import url("apps/lightdm-gtk-greeter.css");
+
+/* toolbar colors */
+@define-color toolbar_gradient_base @bg_color;
+@define-color toolbar_gradient_final shade (@bg_color, 0.96);
+@define-color toolbar_border shade (@bg_color, 0.92);
