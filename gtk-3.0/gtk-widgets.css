@@ -99,7 +99,7 @@ GtkWindow {
 
 *:selected,
 *:selected:focus {
-    background-color: alpha(@theme_selected_bg_color, 0.9);
+    background-color: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
 }
 
@@ -149,15 +149,6 @@ GtkSwitch.slider:insensitive {
 }
 
 /* draw borders using box shadow */
-.primary-toolbar .button .menu,
-.toolbar .menu,
-.toolbar .primary-toolbar .menu,
-.menu {
-    box-shadow: inset 1px 0 shade(@theme_bg_color, 0.8),
-                inset 0 1px shade(@theme_bg_color, 0.8),
-                inset -1px 0 shade(@theme_bg_color, 0.8),
-                inset 0 -1px shade(@theme_bg_color, 0.8);
-}
 
 GtkScale.slider {
     box-shadow: inset 1px 0 shade(@theme_bg_color, 0.7),
@@ -1817,7 +1808,7 @@ GtkTreeView row:nth-child(even) {
 }
 
 GtkTreeView row:nth-child(odd) {
-    background-color: shade(@theme_base_color, 1.0);
+    background-color: @theme_base_color;
 }
 
 /************

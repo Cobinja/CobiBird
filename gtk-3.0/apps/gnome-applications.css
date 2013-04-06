@@ -204,3 +204,16 @@ TerminalWindow GtkNotebook.notebook {
 CcShellItemView.view {
     background-color: @theme_bg_color;
 }
+
+/********
+/* nemo *
+*********/
+
+/* This is a dirty, yet working, fix */
+.nemo-inactive-pane .view *:selected,
+.nemo-inactive-pane .view *:selected:focus {
+    background-image: -gtk-gradient(linear, left top, left bottom,
+                                     from (shade(@theme_selected_bg_color, 1.0)),
+                                     to (shade(@theme_selected_bg_color, 1.0)));
+}
+
