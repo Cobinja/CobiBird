@@ -1398,16 +1398,10 @@ GtkScrolledWindow.frame {
 }
 
 .menuitem.separator {
-    -GtkMenuItem-horizontal-padding: 0;
+    -GtkMenuItem-horizontal-padding: 15;
     -GtkWidget-separator-height: 1;
 
-    color: @theme_bg_color;
-    /*border-color: shade(@dark_bg_color, 0.7);*/
-    border-image: -gtk-gradient(linear, left top, right top,
-                                     color-stop (0, @dark_bg_color),
-                                     color-stop (0.3, shade(@dark_bg_color, 0.8)),
-                                     color-stop (0.7, shade(@dark_bg_color, 0.8)),
-                                     color-stop (1, @dark_bg_color));
+    border-color: shade(@dark_bg_color, 0.8);
     border-right: 0px;
     border-left: 0px;
 }

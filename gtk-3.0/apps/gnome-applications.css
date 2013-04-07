@@ -205,9 +205,9 @@ CcShellItemView.view {
     background-color: @theme_bg_color;
 }
 
-/********
-/* nemo *
-*********/
+/*******
+* nemo *
+********/
 
 /* This is a dirty, yet working, fix */
 .nemo-inactive-pane .view *:selected,
