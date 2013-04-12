@@ -289,35 +289,6 @@ GtkSwitch.slider,
                                      to (shade(shade(@theme_bg_color, 0.95), 0.97)));
 }
 
-/* default button */
-.button.default {
-    background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(alpha(@theme_selected_bg_color, 0.7), 1.05)),
-                                     to (shade(alpha(@theme_selected_bg_color, 0.7), 0.97)));
-
-    border-color: shade(@theme_selected_bg_color, 0.8);
-}
-
-.button.default:hover {
-    background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 1.05)),
-                                     to (shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 0.97)));
-}
-
-.button.default:active {
-    background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(alpha(@theme_selected_bg_color, 0.7), 1.05)),
-                                     to (shade(alpha(@theme_selected_bg_color, 0.7), 0.97)));
-
-    border-color: shade(@theme_selected_bg_color, 0.8);
-}
-
-.button.default:active:hover {
-    background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 1.05)),
-                                     to (shade(mix(@theme_base_color, @theme_selected_bg_color, 0.7), 0.97)));
-}
-
 /* middle button */
 .linked .entry,
 .linked .button,
