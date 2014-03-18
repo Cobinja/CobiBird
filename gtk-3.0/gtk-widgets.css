@@ -289,6 +289,17 @@ GtkSwitch.slider,
                                      to (shade(shade(@theme_bg_color, 0.95), 0.97)));
 }
 
+/* Dialog buttons */
+GtkDialog .button {
+    border-color: shade(@theme_selected_bg_color, 1.0);
+    padding-top: 6px;
+    padding-bottom: 5px;
+}
+
+GtkDialog .button:active {
+    border-color: shade(@theme_selected_bg_color, 1.0);
+}
+
 /* middle button */
 .linked .entry,
 .linked .button,
