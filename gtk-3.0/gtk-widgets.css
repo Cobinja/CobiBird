@@ -293,7 +293,7 @@ GtkSwitch.slider,
 GtkDialog .button {
     border-color: shade(@theme_selected_bg_color, 1.0);
     padding-top: 6px;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
 }
 
 GtkDialog .button:active {
