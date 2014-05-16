@@ -290,10 +290,10 @@ GtkSwitch.slider,
 }
 
 /* Dialog buttons */
-GtkDialog .button {
+GtkDialog GtkButtonBox .button {
     border-color: shade(@theme_selected_bg_color, 1.0);
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 GtkDialog .button:active {
@@ -590,7 +590,7 @@ GtkComboBox .menu .menuitem:active {
 .frame {
     border-radius: 1px;
     border-style: solid;
-    border-color: shade(@theme_bg_color, 0.7);
+    border-color: shade(@theme_bg_color, 0.8);
 }
 
 /************
@@ -953,7 +953,8 @@ GtkTreeMenu .menuitem * {
     border-radius: 1px;
     border-style: solid;
     border-color: shade(@theme_bg_color, 0.8);
-    padding: 0;
+    padding: 0px;
+    margin: 0px;
 }
 
 .notebook tab {
