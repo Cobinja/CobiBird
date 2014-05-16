@@ -14,6 +14,7 @@ UnityDecoration,
 .unity-panel.menuitem,
 .unity-panel .menuitem {
     border-width: 0px 1px;
+    color: shade(@theme_fg_color, 1.0);
 }
 
 /* Decorations */
