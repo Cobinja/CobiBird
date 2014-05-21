@@ -25,3 +25,12 @@ UnityDecoration.top {
                                      from (shade(@theme_bg_color, 1.1)),
                                      to (shade(@theme_bg_color, 1.0)));
 }
+
+UnityDecoration.left, UnityDecoration.right {
+    border-radius: 0px;
+    background: shade(@theme_bg_color, 1.0);
+    border: shade(@theme_bg_color, 1.0);
+}
+
+UnityDecoration.bottom {
+}
