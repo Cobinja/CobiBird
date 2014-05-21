@@ -121,10 +121,6 @@ WnckPager, WnckTasklist {
     text-shadow: none;
 }
 
-.toolbar {
-  background-color: shade (#FF0000, 1.0);
-}
-
 NautilusWindow .sidebar .frame {
     border-width: 1px 0 0 0;
     border-style: solid;
