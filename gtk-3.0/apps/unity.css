@@ -26,11 +26,8 @@ UnityDecoration.top {
                                      to (shade(@theme_bg_color, 1.0)));
 }
 
-UnityDecoration.left, UnityDecoration.right {
+UnityDecoration.left, UnityDecoration.right, UnityDecoration.bottom {
     border-radius: 0px;
     background: shade(@theme_bg_color, 1.0);
     border: shade(@theme_bg_color, 1.0);
-}
-
-UnityDecoration.bottom {
 }
