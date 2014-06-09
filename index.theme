@@ -7,6 +7,6 @@ Encoding=UTF-8
 [X-GNOME-Metatheme]
 GtkTheme=CobiBird
 MetacityTheme=CobiBird
-IconTheme=elementary-xfce-dark
+IconTheme=elementary-mono-dark
 CursorTheme=DMZ-White
 ButtonLayout=:minimize,maximize,close
