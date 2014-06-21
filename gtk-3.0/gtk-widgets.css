@@ -81,26 +81,15 @@ GtkWindow {
     text-shadow: 1px 1px alpha(@light_shadow, 0.4);
 }
 
-*:active {
-    background-color: shade(@theme_bg_color, 0.9);
-}
-
-*:active:hover:insensitive {
-}
-
-*:active:insensitive {
-}
-
-*:hover {
-}
-
-*:hover:insensitive {
-}
-
 *:selected,
 *:selected:focus {
     background-color: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
+}
+
+GtkCheckButton:selected,
+GtkCheckButton:selected:focus {
+  background-color: transparent;
 }
 
 /******************
