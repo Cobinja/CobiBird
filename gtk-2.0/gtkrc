@@ -272,7 +272,7 @@ style "notebook" = "notebook-bg"
 	engine "murrine" {
 		contrast		= 0.6
 		gradient_shades		= {1.1,1.05,1.05,1.0}
-		#focusstyle		= 2
+		focusstyle		= 0
 		#lightborder_shade	= 1.16
 	}
 }
