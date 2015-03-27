@@ -629,6 +629,16 @@ GtkLabel:insensitive {
     background-color: transparent;
 }
 
+/*******
+ * box *
+/*******/
+GtkBox,
+GtkBox:insensitive,
+GtkGrid,
+GtkGrid:insensitive {
+    background-color: transparent;
+}
+
 /***********
  * infobar *
  ***********/
@@ -945,6 +955,11 @@ GtkTreeMenu .menuitem * {
     border-color: shade(@theme_bg_color, 0.8);
     padding: 0px;
     margin: 0px;
+}
+
+.notebook.header {
+    border: none;
+    background: transparent;
 }
 
 .notebook tab {
