@@ -1816,9 +1816,8 @@ GtkViewport.frame {
 /* Client side decorations */
 .titlebar {
   text-shadow: 1px 1px lighter (@bg_color);
-  background-image: linear-gradient(to bottom, shade(@bg_color, 1.07), @bg_color);
   border-radius: 7px 7px 0px 0px;
-  padding: 3px;
+  padding: 5px;
 }
 
 .maximized .titlebar,
@@ -1843,37 +1842,6 @@ GtkViewport.frame {
   text-shadow: none;
   background-image: none;
   background-color: @bg_color;
-}
-
-.titlebar .titlebutton {
-  icon-shadow: 0px 1px #ffff;
-  color: shade(@fg_color, 1.8);
-  background: none;
-  padding: 5px 5px 6px 5px;
-
-  border-radius: 1px;
-  border-width: 0px;
-  padding: 2px;
-  border-color: transparent;
-  border-image: linear-gradient(to bottom, @bg_color, shade(@bg_color, 1.07));
-}
-
-.titlebar .titlebutton:backdrop {
-  border-image: none;
-  background-image: none;
-}
-
-.titlebar .titlebutton:active {
-  background-image: linear-gradient(to bottom, #a7aba7, shade(@bg_color, 0.95));
-  color: @selected_fg_color;
-  icon-shadow: none;
-}
-
-.titlebar .titlebutton:backdrop {
-  background-image: none;
-  color: #a7aba7;
-  border-image: none;
-  icon-shadow: none;
 }
 
 .window-frame {
