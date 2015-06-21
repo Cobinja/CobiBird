@@ -1360,6 +1360,16 @@ GtkScrolledWindow.frame {
     border-style: solid;
 }
 
+/* Drawn when content is dragged past boundaries */
+.overshoot {
+    background-color: transparent;
+}
+
+/* Drawn when there is more content */
+.undershoot {
+    background-color: transparent;
+}
+
 /*************
  * separator *
  *************/
