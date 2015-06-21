@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <metacity_theme>
 <info>
-  <name>elementary</name>
-  <author>elementart Art Team (modified by Simon Steinbeiß to work with Greybird gtk)</author>
+  <name>CobiBird</name>
+  <author>Cobinja, elementart Art Team (modified by Simon Steinbeiß to work with Greybird gtk)</author>
   <copyright>GPL</copyright>
   <date>November 2009 (modified July 2011)</date>
   <description>A pleasant theme built to adapt to many color schemes as well as be optimal for both high and low resolution displays.</description>
