@@ -631,7 +631,7 @@ GtkLabel:insensitive {
 
 /*******
  * box *
-/*******/
+********/
 GtkBox,
 GtkBox:insensitive,
 GtkGrid,
@@ -1516,9 +1516,8 @@ GtkTextView {
 .primary-toolbar.toolbar {
     -GtkWidget-window-dragging: true;
 
-    background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(@theme_bg_color, 1.0)),
-                                     to (shade(@theme_bg_color, 0.88)));
+    background-image: none;
+    background-color: transparent;
 
     border-color: shade(@theme_bg_color, 0.7);
     border-style: solid;
@@ -1545,46 +1544,31 @@ GtkTextView {
 .primary-toolbar .button:active,
 .primary-toolbar .button:insensitive {
     background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(@theme_bg_color, 1.15)),
-                                     to (shade(@theme_bg_color, 1.07)));
+                                     from (shade(@theme_bg_color, 1.1)),
+                                     to (shade(@theme_bg_color, 1.06)));
 
     border-color: shade(@theme_bg_color, 0.7);
 }
 
 .primary-toolbar .button:active {
     background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(shade(@theme_bg_color, 0.85), 1.05)),
-                                     to (shade(shade(@theme_bg_color, 0.85), 0.97)));
+                                     from (shade(@theme_bg_color, 0.8925)),
+                                     to (shade(@theme_bg_color, 0.8245)));
 
     border-color: shade(@theme_bg_color, 0.6);
 }
 
-.primary-toolbar .button:active:hover {
+.primary-toolbar .button:hover {
     background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(@theme_bg_color, 1.15)),
-                                     to (shade(@theme_bg_color, 1.07)));
-
-    border-top-color: shade(@theme_bg_color, 0.85);
-    border-right-color: shade(@theme_bg_color, 0.78);
-    border-bottom-color: shade(@theme_bg_color, 0.7);
-    border-left-color: shade(@theme_bg_color, 0.78);
+                                     from (shade(@theme_bg_color, 1.2)),
+                                     to (shade(@theme_bg_color, 1.12)));
 }
 
 .primary-toolbar .button:active:insensitive,
 .primary-toolbar .button:insensitive {
-    border-color: shade(@theme_bg_color, 0.8);
-}
-
-.primary-toolbar .button:insensitive {
-    background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(shade(@theme_bg_color, 0.95), 1.05)),
-                                     to (shade(shade(@theme_bg_color, 0.95), 0.97)));
-}
-
-.primary-toolbar .button:active:insensitive {
-    background-image: -gtk-gradient(linear, left top, left bottom,
-                                     from (shade(shade(@theme_bg_color, 0.95), 1.05)),
-                                     to (shade(shade(@theme_bg_color, 0.95), 0.97)));
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
 }
 
 .primary-toolbar .entry,
@@ -1714,7 +1698,7 @@ GtkTextView {
 .inline-toolbar.toolbar GtkToolButton:last-child .button:focus,
 .inline-toolbar.toolbar GtkToolButton:last-child .button:focus:active,
 .inline-toolbar.toolbar GtkToolButton:last-child .button:insensitive {
-    border-left-width: 0;
+    border-left-width: 1px;
     border-right-width: 1px;
     border-radius: 0 1px 1px 0;
 }

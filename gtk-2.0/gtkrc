@@ -530,7 +530,7 @@ style "toolbar" = "default"
 	{
 		contrast = 1.13
 		lightborder_shade = 1.0
-		gradient_shades = {1.0,0.94,0.94,0.88}
+		gradient_shades = {1.0,0.94,0.94,1.0}
 	}
 }
 
