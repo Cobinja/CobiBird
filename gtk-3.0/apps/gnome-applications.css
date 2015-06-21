@@ -222,3 +222,18 @@ CcShellItemView.view {
                                      to (shade(@theme_selected_bg_color, 1.0)));
 }
 
+/********************
+ * gnome tweak tool *
+ ********************/
+
+.tweak-category {
+  background: none;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+.tweak-category:selected:hover {
+  background: none;
+  background-color: shade(@selected_bg_color, 1.2);
+  border-width: 0px;
+}
