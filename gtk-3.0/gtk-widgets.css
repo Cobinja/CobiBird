@@ -1741,7 +1741,8 @@ GtkTextView {
 /***********
  * tooltip *
  ***********/
-.tooltip {
+.tooltip,
+.tooltip.background {
     background-color: alpha(@theme_tooltip_bg_color, 0.9);
     border-color: @theme_tooltip_bg_color;
     border-radius: 1px;
