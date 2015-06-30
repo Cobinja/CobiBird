@@ -1773,11 +1773,11 @@ GtkTreeView .entry {
     border-radius: 0;
 }
 
-GtkTreeView row:nth-child(even) {
+GtkTreeView row:even {
     background-color: shade(@theme_base_color, 0.92);
 }
 
-GtkTreeView row:nth-child(odd) {
+GtkTreeView row:odd {
     background-color: @theme_base_color;
 }
 
