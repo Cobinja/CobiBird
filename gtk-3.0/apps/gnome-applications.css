@@ -237,3 +237,11 @@ CcShellItemView.view {
   background-color: shade(@selected_bg_color, 1.2);
   border-width: 0px;
 }
+
+/*************
+ * Title Bar *
+ *************/
+
+.titlebar .button {
+  padding: 2px;
+}
