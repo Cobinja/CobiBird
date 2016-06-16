@@ -87,6 +87,10 @@ GtkWindow {
     color: @theme_selected_fg_color;
 }
 
+GtkCheckButton {
+    background-color: transparent;
+}
+
 GtkCheckButton:selected,
 GtkCheckButton:selected:focus {
   background-color: transparent;
@@ -219,8 +223,7 @@ GtkAssistant .sidebar {
 .button {
     -GtkWidget-focus-padding: 1;
     -GtkWidget-focus-line-width: 0;
-
-    padding: 2px;
+    padding: 5px;
 }
 
 GtkSwitch.slider,
@@ -362,6 +365,7 @@ GtkDialog .button:active {
     background-color: @theme_base_color;
     border-radius: 0;
     border-width: 0;
+    padding: 2px;
 }
 
 row:selected,
@@ -582,6 +586,10 @@ GtkComboBox .menu .menuitem:active {
     border-color: shade(@theme_bg_color, 0.8);
 }
 
+.frame.view {
+    border: none;
+}
+
 /************
  * iconview *
  ************/
@@ -637,6 +645,7 @@ GtkBox:insensitive,
 GtkGrid,
 GtkGrid:insensitive {
     background-color: transparent;
+    border-width: 0px;
 }
 
 /***********
@@ -941,6 +950,10 @@ GtkTreeMenu .menuitem * {
 
 .menuitem .accelerator:insensitive {
     color: alpha(mix(@dark_fg_color, @dark_bg_color, 0.5), 0.6);
+}
+
+.menuitem GtkBox GtkStack {
+    background-color: transparent;
 }
 
 /************
@@ -1363,11 +1376,13 @@ GtkScrolledWindow.frame {
 /* Drawn when content is dragged past boundaries */
 .overshoot {
     background-color: transparent;
+    border-color: transparent;
 }
 
 /* Drawn when there is more content */
 .undershoot {
     background-color: transparent;
+    border-color: transparent;
 }
 
 /*************
@@ -1450,14 +1465,23 @@ GtkComboBox .separator {
 /***********
  * spinner *
  ***********/
-.menu.spinner,
-.primary-toolbar .spinner,
-.primary-toolbar .spinner {
-    color: @theme_selected_bg_color;
-}
 
+@keyframes spin {
+  to {
+    -gtk-icon-transform: rotate(1turn); }
+}
+.spinner {
+  background-image: none;
+  background-color: blue;
+  opacity: 0;
+  -gtk-icon-source: -gtk-icontheme("process-working-symbolic");
+}
 .spinner:active {
-     transition: 750ms linear loop;
+  opacity: 1;
+  animation: spin 1s linear infinite;
+}
+.spinner:active:insensitive {
+  opacity: 0.5;
 }
 
 /*************
@@ -1743,7 +1767,7 @@ GtkTextView {
  ***********/
 .tooltip,
 .tooltip.background {
-    background-color: alpha(@theme_tooltip_bg_color, 0.9);
+    background-color: @theme_tooltip_bg_color;
     border-color: @theme_tooltip_bg_color;
     border-radius: 1px;
     border-style: solid;
@@ -1779,6 +1803,10 @@ GtkTreeView row:even {
 
 GtkTreeView row:odd {
     background-color: @theme_base_color;
+}
+
+GtkTreeView .button {
+  padding: 3px;
 }
 
 /************
@@ -1863,4 +1891,41 @@ GtkViewport.frame {
  *************/
 .statusbar .frame{
     border-color: transparent;
+}
+
+/********
+ * List *
+ ********/
+.list {
+  /*border: 1px solid;*/
+  /*background: transparent;*/
+}
+
+.list-row {
+  padding: 0px;
+  background: transparent;
+  border-top: none;
+  border-bottom: none;
+}
+
+.list-row:hover, .list-row:active {
+  background: shade(@selected_bg_color, 1.0);
+  color: shade(@selected_fg_color, 1.0);
+}
+
+.list-row:hover *,
+.list-row:active *,
+.list-row:focus * {
+  color: shade(@fg_color, 1.0);
+}
+
+.list-row.button {
+  box-shadow: none;
+}
+
+/*********
+ * Entry *
+ *********/
+GtkEntry {
+  padding: 3px;
 }
