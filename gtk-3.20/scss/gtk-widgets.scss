@@ -36,6 +36,16 @@
               0 1px transparentize(white, 1);
   text-shadow: none;
   -gtk-icon-shadow: none;
+  
+  &:disabled {
+    background-color: transparent;
+    background-image: none;
+    border-color: transparent;
+    box-shadow: inset 0 1px transparentize(white,1),
+                0 1px transparentize(white, 1);
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+  }
 }
 
 @function linear_gradient_maybe_vertical ($c, $shade_basic, $shade1, $shade2, $t: 'vertical') {
@@ -82,8 +92,9 @@
   -WnckTasklist-fade-overlay-rect: 0;
   
   &:disabled {
-    color: gtkmix($fg_color, $bg_color, 0.4);
+    color: gtkmix($fg_color, $bg_color, 0.6);
     text-shadow: 1px 1px gtkalpha($light_shadow, 0.4);
+    -gtk-icon-effect: dim;
   }
   
   &:selected, selection {
@@ -97,46 +108,40 @@
   color: $fg_color;
 }
 
-/***************************
- * Client Side decorations *
- ***************************/
-
-decoration {
-  border-radius: 7px 7px 0px 0px;
-  border-width: 0px;
-  box-shadow: 0 3px 9px 1px transparentize(black, 0.5),
-              0 0 0 1px transparentize(black, 0.77);
-  margin: 10px;
+.osd {
+  border: none;
+  background-color: transparentize($bg_color, 0.8);
 }
 
-headerbar {
-  border-radius: 7px 7px 0px 0px;
-  .right button:last-child {
-    border-top-right-radius: 7px;
+%linked_middle {
+  border-radius: 0px;
+}
+
+%linked {
+  &:first-child {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
   }
-  .left button:first-child {
-    border-top-left-radius: 7px;
+  &:last-child {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
   }
-  
-  .titlebutton {
-    box-shadow: none;
-    background-image: none;
-    border: none;
+  &:only-child {
+    border-radius: 2px;
   }
-  .maximized & {
-    border-radius: 0px;
-    .right button {
-      margin-top: -1px;
-      &:last-child {
-        border-top-right-radius: 0px;
-      }
-    }
-    .left button {
-      margin-top: -1px;
-      &:first-child {
-        border-top-left-radius: 0px;
-      }
-    }
+}
+
+%linked_vertical {
+  &:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+  &:last-child {
+    border-bottom-right-radius: 2px;
+    border-bottom_left-radius: 2px;
+  }
+  &:only-child {
+    border-radius: 2px;
   }
 }
 
@@ -210,33 +215,177 @@ button {
     padding: 3px;
   }
   
-  toolbar & {
-    box-shadow: none;
-  }
-  
-  toolbar .linked & {
-    box-shadow: none;
-    border-radius: 0px;
+  .linked:not(.vertical) & {
+    @extend %linked_middle;
+    
     &:first-child {
-      border-bottom-left-radius: 1px;
-      border-top-left-radius: 1px;
+      @extend %linked:first-child;
     }
     &:last-child {
-      border-bottom-right-radius: 1px;
-      border-top-right-radius: 1px;
+      @extend %linked:last-child;
+    }
+    &:only-child {
+      @extend %linked:only-child;
     }
   }
   
-  .linked *:not(:first-child):not(:only-child) &,
-  .linked &:not(:first-child):not(:only-child) {
+  .linked.vertical & {
+    @extend %linked_middle;
+    
+    &:first-child {
+      @extend %linked_vertical:first-child;
+    }
+    &:last-child {
+      @extend %linked_vertical:last-child;
+    }
+    &:only-child {
+      @extend %linked_vertical:only-child;
+    }
+  }
+  
+  .linked:not(.vertical) *:not(:first-child):not(:only-child) &,
+  .linked:not(.vertical) &:not(:first-child):not(:only-child) {
     border-left-width: 0px;
   }
+  .linked.vertical *:not(:first-child):not(:only-child) &,
+  .linked.vertical &:not(:first-child):not(:only-child) {
+    border-top-width: 0px;
+  }
+}
+
+checkbutton, radiobutton {
+  padding: 3px;
+}
+
+spinbutton {
+  entry {
+    min-width: 32px;
+  }
+  button:active:focus, button:focus {
+    border-top-color: shade($bg_color, 0.8);
+    border-right-color: shade($bg_color, 0.72);
+    border-bottom-color: shade($bg_color, 0.7);
+    border-left-color: shade($bg_color, 0.72);
+    box-shadow: inset 1px 1px gtkalpha($light_shadow, 0.4),
+                inset -1px 0 gtkalpha($light_shadow, 0.4);
+  }
+  &:dir(ltr):not(.vertical) {
+    button {
+      border-left-width: 0px;
+    }
+  }
+  &:dir(rtl):not(.vertical) {
+    button {
+      border-left-width: 0px;
+    }
+  }
+  &.vertical {
+    entry {
+      min-height: 21px;
+      border-top-width: 0px;
+      border-bottom-width: 0px;
+    }
+  }
+  
+  .linked:not(.vertical) & {
+    button, entry {
+      @extend %linked_middle;
+    }
+    &:first-child {
+      button, entry {
+        @extend %linked:first-child;
+      }
+    }
+    &:last-child {
+      button, entry {
+        @extend %linked:last-child;
+      }
+    }
+    &:only-child {
+      button, entry {
+        @extend %linked:only-child;
+      }
+    }
+  }
+  
+  .linked.vertical & {
+    button, entry {
+      @extend %linked_middle;
+    }
+    &:first-child {
+      button, entry {
+        @extend %linked_vertical:first-child;
+      }
+    }
+    &:last-child > box > button.combo {
+      button, entry {
+        @extend %linked_vertical:last-child;
+      }
+    }
+    &:only-child > box > button.combo {
+      button, entry {
+        @extend %linked_vertical:only-child;
+      }
+    }
+  }
+  
+  .linked:not(.vertical) *:not(:first-child):not(:only-child) &,
+  .linked:not(.vertical) &:not(:first-child):not(:only-child) {
+    &:dir(ltr) {
+      entry {
+        border-left-width: 0px;
+      }
+    }
+    &:dir(rtl) {
+      button:first-child {
+        border-left-width: 0px;
+      }
+    }
+  }
+  .linked.vertical *:not(:first-child):not(:only-child) &,
+  .linked.vertical &:not(:first-child):not(:only-child) {
+    &:not(.vertical) {
+      button, entry {
+        border-top-width: 0px;
+      }
+    }
+    &.vertical {
+      button:first-child {
+        border-top-width: 0px;
+      }
+    }
+  }
+}
+
+entry, textview, view, .view {
+  background-color: $base_color;
+  border: 1px solid shade($bg_color, 0.8);
+  &:selected {
+    &:focus, & {
+      background-color: $selected_bg_color;
+      border-color: $selected_bg_color;
+      border-radius: 0px;
+    }
+  }
+  &:disabled {
+    background-color: shade($base_color, 0.95);
+  }
+}
+
+entry, textview, view {
+  padding: 3px;
+}
+
+.view:not(:selected) {
+  border: transparent;
 }
 
 treeview {
   background-color: $base_color;
   
   header button {
+    min-height: 16px;
+    padding: 4px 5px 3px;
     &,
     &:hover,
     &:focus,
@@ -250,25 +399,40 @@ treeview {
       border-color: shade($bg_color, 0.97);
       border-bottom-color: shade($bg_color, 0.8);
     }
+    
+    &:not(:first-child) {
+      border-left-width: 0px;
+    }
   }
   
   .cell {
     padding: 2px;
   }
-}
+  
+  &.view.progressbar {
+    background-image: linear_gradient_maybe_vertical($selected_bg_color, 1.05, 0.95, 1.15);
+    background-color: $selected_bg_color;
+    border: 1px solid shade($selected_bg_color, 0.7);
+    box-shadow: inset 0 1px transparentize(white,0.7),
+                      0 1px transparentize(black, 0.8);
+  }
+  &.view.trough {
+    padding: 0px;
+    box-shadow: inset 1px 1px transparentize(black, 0.9);
+    border: 1px solid shade($bg_color, 0.6); 
+    background-color: shade($bg_color, 0.9);
+    background-image: linear_gradient_maybe_vertical($bg_color, 1.05, 0.95, 1.15);
 
-checkbutton, radiobutton {
-  padding: 3px;
-}
-
-entry, textview , view, .view:not(:selected) {
-  padding: 3px;
-  background-color: $base_color;
-  border: 1px solid shade($bg_color, 0.8);
-}
-
-.view:not(:selected) {
-  border: transparent;
+    &:selected {
+      &:focus, & {
+        background-color: transparentize($selected_fg_color, 0.7);
+        border-radius: 1px;
+        border-width: 1px 0;
+        border-style: solid;
+        border-color: $selected_bg_color;
+      }
+    }
+  }
 }
 
 toolbar {
@@ -376,20 +540,6 @@ trough {
   border: 1px solid shade($bg_color, 0.6); 
   background-color: shade($bg_color, 0.9);
   background-image: linear_gradient_maybe_vertical($bg_color, 1.05, 0.95, 1.15);
-  progressbar & {
-    progress {
-      background-image: linear_gradient_maybe_vertical($selected_bg_color, 1.05, 0.95, 1.15);
-      border-style: solid;
-      border-width: 1px;
-      border-color: shade($selected_bg_color, 0.7);
-    }
-  }
-  progressbar.vertical & {
-    background-image: linear_gradient_maybe_vertical($bg_color, 1.05, 0.95, 1.15, 'horizontal');
-    progress {
-      background-image: linear_gradient_maybe_vertical($selected_bg_color, 1.05, 0.95, 1.15, 'horizontal');
-    }
-  }
 }
 
 
@@ -400,7 +550,6 @@ progressbar {
       border-style: solid;
       border-width: 1px;
       border-color: shade($selected_bg_color, 0.7);
-      border:none;
     }
   }
   &.vertical {
@@ -524,6 +673,45 @@ scrollbar {
 }
 
 combobox {
+  .linked:not(.vertical) & {
+    > box > button.combo {
+      @extend %linked_middle;
+    }
+    &:first-child > box > button.combo {
+      @extend %linked:first-child;
+    }
+    &:last-child > box > button.combo {
+      @extend %linked:last-child;
+    }
+    &:only-child > box > button.combo {
+      @extend %linked:only-child;
+    }
+  }
+  
+  .linked.vertical & {
+    > box > button.combo {
+      @extend %linked_middle;
+    }
+    &:first-child > box > button.combo {
+      @extend %linked_vertical:first-child;
+    }
+    &:last-child > box > button.combo {
+      @extend %linked_vertical:last-child;
+    }
+    &:only-child > box > button.combo {
+      @extend %linked_vertical:only-child;
+    }
+  }
+  
+  .linked:not(.vertical) *:not(:first-child):not(:only-child) &,
+  .linked:not(.vertical) &:not(:first-child):not(:only-child) {
+    border-left-width: 0px;
+  }
+  .linked.vertical *:not(:first-child):not(:only-child) &,
+  .linked.vertical &:not(:first-child):not(:only-child) {
+    border-top-width: 0px;
+  }
+  
   arrow {
     -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     min-height: 16px;
@@ -540,8 +728,8 @@ separator {
 frame {
   border {
     border: 1px solid shade($bg_color, 0.7);
-    &.flat{
-      border: none;
+    &.flat {
+      border-width: 0px;
     }
   }
   label {
@@ -731,10 +919,7 @@ list {
     border-top: none;
     border-bottom: none;
     background: shade($bg_color, 1.25);
-    
-    &.sidebar-row {
-      padding: 10px 4px;
-    }
+    margin: 0px;
     
     &:selected {
       background: linear-gradient(to bottom, lighten($bg_color, 10%), lighten($bg_color, 5%));
@@ -745,6 +930,21 @@ list {
       background: linear-gradient(to bottom, lighten($bg_color, 15%), lighten($bg_color, 11%));
       color: $fg_color;
     }
+    
+    &.sidebar-row {
+      padding: 10px 4px;
+      
+      &:selected {
+        background: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+            
+      &:hover, &:active {
+        background: $selected_bg_color;
+        color: $selected_fg_color;
+      }
+    }
+    
     > label {
       margin: 10px 4px;
     }
@@ -752,7 +952,7 @@ list {
 }
 
 modelbutton.flat {
-  min-height: 24px; // 26px;
+  min-height: 24px;
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 1px;
@@ -762,10 +962,18 @@ modelbutton.flat {
 
   &:hover {
     background-color: shade($dark_bg_color, 0.7);
+    box-shadow: none;
+    border-color: shade($dark_bg_color, 0.5);
   }
 
-  &:selected {
-    background-color: $selected_bg_color;
+  &:active {
+    background-color: $dark_bg_color;
+    box-shadow: none;
+    border-color: shade($dark_bg_color, 0.5);
+  }
+  
+  &:focus, &:active:focus {
+    border-color: none;
   }
 
   check:last-child,
@@ -785,13 +993,16 @@ popover.background {
   border-radius: 5px;
   color: $dark_fg_color;
   background-color: $dark_bg_color;
-
   border: 1px solid shade($dark_bg_color, 0.7);
-
   box-shadow: 0 1px 2px transparentize(black, 0.7);
 
   label:disabled {
     color: mix(darken($dark_fg_color, 10%), darken($dark_bg_color, 30%), 0.4);
+  }
+  
+  button {
+    @extend modelbutton.flat;
+    min-height: unset;
   }
 
   > list,
@@ -820,4 +1031,166 @@ popover.background {
 // dirty hack for nemo view
 .nemo-window-pane > .view {
   background: shade($bg_color, 1.25);
+}
+
+paned {
+  border-width: 0px;
+}
+
+colorswatch {
+  border: none;
+  border-radius: 2px;
+
+  &.dark overlay {
+    color: $selected_fg_color;
+
+    &:hover {
+      border-color: transparentize(black, 0.2);
+    }
+  }
+
+  &.light overlay {
+    color: $text_color;
+    background: transparent;
+    &:hover {
+      border-color: transparentize(black, 0.5);
+    }
+  }
+
+  overlay {
+    box-shadow: inset 0 2px 2px -3px transparentize(black, 0.3);
+    border: 1px solid transparentize(black, 0.7);
+    border-radius: 2px;
+
+    &:hover {
+      box-shadow: inset 0 1px transparentize(white, 0.7);
+    }
+    &:selected {
+      background: transparent;
+    }
+  }
+
+  &:disabled {
+    overlay {
+      border-color: transparentize(black, 0.4);
+      box-shadow: none;
+    }
+  }
+}
+
+// colorscale popup
+colorchooser .popover.osd { border-radius: 3px; }
+
+filechooser paned box.view {
+  background-color: $bg_color;
+}
+
+
+/***************************
+ * Client Side decorations *
+ ***************************/
+
+decoration {
+  border-radius: 7px 7px 0px 0px;
+  border-width: 0px;
+  box-shadow: 0 3px 9px 1px transparentize(black, 0.5),
+              0 0 0 1px transparentize(black, 0.77);
+  margin: 10px;
+}
+
+headerbar {
+  border-radius: 7px 7px 0px 0px;
+  min-height: 32px;
+  padding: 6px;
+  background: $bg_color linear-gradient(to bottom, shade($bg_color, 1.07), $bg_color);
+  border-bottom: 1px solid shade($bg_color, 0.8);
+  
+  .right {
+    margin-top: -6px;
+    margin-bottom: -6px;
+    margin-right: -6px;
+    button:last-child {
+      border-top-right-radius: 7px;
+    }
+  }
+  
+  .titlebutton {
+    
+    &.close, &.minimize, &.maximize {
+      &, &:disabled, image, image:disabled {
+        background-repeat: no-repeat;
+        background-position: 50% 10%;
+        color: transparent;
+        min-height: 32px;
+        box-shadow: none;
+        border: none;
+      }
+      &:hover, &:selected, &:active, &:checked,
+      &:focus,
+      &:hover:focus,
+      &:active:focus {
+        box-shadow: none;
+        background-image: none;
+        border: none;
+      }
+    }
+    
+    &.close {
+      background-image: url("assets/close-focus-normal.svg");
+      &:backdrop {
+        background-image: url("assets/close-focus-none.svg");
+      }
+      &:hover {
+        background-image: url("assets/close-focus.svg");
+      }
+      &:active, &:active:hover {
+        background-image: url("assets/close-pressed.svg");
+      }
+    }
+    
+    &.minimize {
+      background-image: url("assets/minimize-focus-normal.svg");
+      &:backdrop {
+        background-image: url("assets/minimize-focus-none.svg");
+      }
+      &:hover {
+        background-image: url("assets/minimize-focus.svg");
+      }
+      &:active, &:active:hover {
+        background-image: url("assets/minimize-pressed.svg");
+      }
+    }
+    
+    &.maximize {
+      background-image: url("assets/maximize-focus-normal.svg");
+      &:backdrop {
+        background-image: url("assets/maximize-focus-none.svg");
+      }
+      &:hover {
+        background-image: url("assets/maximize-focus.svg");
+      }
+      &:active, &:active:hover {
+        background-image: url("assets/maximize-pressed.svg");
+      }
+    }
+  }
+  
+  .maximized & {
+    border-radius: 0px;
+    .right button {
+      margin-top: -1px;
+      &:last-child {
+        border-top-right-radius: 0px;
+      }
+    }
+    .left button {
+      margin-top: -1px;
+      &:first-child {
+        border-top-left-radius: 0px;
+      }
+    }
+  }
+  .title {
+    font-weight: bold;
+  }
 }

@@ -14,7 +14,15 @@ button, switch slider {
   color: #101010;
 }
 
-button.flat, modelbutton.flat {
+button.flat, modelbutton.flat, popover.background button {
+  background-color: transparent;
+  background-image: none;
+  border-color: transparent;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0), 0 1px rgba(255, 255, 255, 0);
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+}
+button.flat:disabled, modelbutton.flat:disabled, popover.background button:disabled {
   background-color: transparent;
   background-image: none;
   border-color: transparent;
@@ -56,8 +64,9 @@ button.flat, modelbutton.flat {
   -WnckTasklist-fade-overlay-rect: 0;
 }
 *:disabled {
-  color: mix(#101010, #cecece, 0.4);
+  color: mix(#101010, #cecece, 0.6);
   text-shadow: 1px 1px alpha(#FFFFFF,0.4);
+  -gtk-icon-effect: dim;
 }
 *:selected, * selection {
   background-color: #799ABE;
@@ -69,44 +78,37 @@ button.flat, modelbutton.flat {
   color: #101010;
 }
 
-/***************************
- * Client Side decorations *
- ***************************/
-decoration {
-  border-radius: 7px 7px 0px 0px;
-  border-width: 0px;
-  box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.23);
-  margin: 10px;
+.osd {
+  border: none;
+  background-color: rgba(206, 206, 206, 0.2);
 }
 
-headerbar {
-  border-radius: 7px 7px 0px 0px;
-}
-headerbar .right button:last-child {
-  border-top-right-radius: 7px;
-}
-headerbar .left button:first-child {
-  border-top-left-radius: 7px;
-}
-headerbar .titlebutton {
-  box-shadow: none;
-  background-image: none;
-  border: none;
-}
-.maximized headerbar {
+.linked:not(.vertical) button, .linked.vertical button, .linked:not(.vertical) spinbutton button, .linked:not(.vertical) spinbutton entry, .linked.vertical spinbutton button, .linked.vertical spinbutton entry, .linked:not(.vertical) combobox > box > button.combo, .linked.vertical combobox > box > button.combo {
   border-radius: 0px;
 }
-.maximized headerbar .right button {
-  margin-top: -1px;
+
+.linked:not(.vertical) button:first-child, .linked:not(.vertical) spinbutton:first-child button, .linked:not(.vertical) spinbutton:first-child entry, .linked:not(.vertical) combobox:first-child > box > button.combo {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
-.maximized headerbar .right button:last-child {
-  border-top-right-radius: 0px;
+.linked:not(.vertical) button:last-child, .linked:not(.vertical) spinbutton:last-child button, .linked:not(.vertical) spinbutton:last-child entry, .linked:not(.vertical) combobox:last-child > box > button.combo {
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
 }
-.maximized headerbar .left button {
-  margin-top: -1px;
+.linked:not(.vertical) button:only-child, .linked:not(.vertical) spinbutton:only-child button, .linked:not(.vertical) spinbutton:only-child entry, .linked:not(.vertical) combobox:only-child > box > button.combo {
+  border-radius: 2px;
 }
-.maximized headerbar .left button:first-child {
-  border-top-left-radius: 0px;
+
+.linked.vertical button:first-child, .linked.vertical spinbutton:first-child button, .linked.vertical spinbutton:first-child entry, .linked.vertical combobox:first-child > box > button.combo {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.linked.vertical button:last-child, .linked.vertical spinbutton:last-child > box > button.combo button, .linked.vertical spinbutton:last-child > box > button.combo entry, .linked.vertical combobox:last-child > box > button.combo {
+  border-bottom-right-radius: 2px;
+  border-bottom_left-radius: 2px;
+}
+.linked.vertical button:only-child, .linked.vertical spinbutton:only-child > box > button.combo button, .linked.vertical spinbutton:only-child > box > button.combo entry, .linked.vertical combobox:only-child > box > button.combo {
+  border-radius: 2px;
 }
 
 button.scale, button.link {
@@ -148,49 +150,109 @@ button:disabled:focus {
 button.combo {
   padding: 3px;
 }
-toolbar button {
-  box-shadow: none;
-}
-toolbar .linked button {
-  box-shadow: none;
-  border-radius: 0px;
-}
-toolbar .linked button:first-child {
-  border-bottom-left-radius: 1px;
-  border-top-left-radius: 1px;
-}
-toolbar .linked button:last-child {
-  border-bottom-right-radius: 1px;
-  border-top-right-radius: 1px;
-}
-.linked *:not(:first-child):not(:only-child) button, .linked button:not(:first-child):not(:only-child) {
+.linked:not(.vertical) *:not(:first-child):not(:only-child) button, .linked:not(.vertical) button:not(:first-child):not(:only-child) {
   border-left-width: 0px;
 }
-
-treeview {
-  background-color: #fcfcfc;
-}
-treeview header button, treeview header button:hover, treeview header button:focus, treeview header button:active, treeview header button:checked, treeview header button:hover:focus, treeview header button:active:focus {
-  background-image: linear-gradient(to bottom, shade(shade(#cecece, 1.14), 0.98), shade(shade(#cecece, 1.14), 1.35));
-  border-color: shade(#cecece, 0.97);
-  border-bottom-color: shade(#cecece, 0.8);
-}
-treeview .cell {
-  padding: 2px;
+.linked.vertical *:not(:first-child):not(:only-child) button, .linked.vertical button:not(:first-child):not(:only-child) {
+  border-top-width: 0px;
 }
 
 checkbutton, radiobutton {
   padding: 3px;
 }
 
-entry, textview, view, .view:not(:selected) {
-  padding: 3px;
+spinbutton entry {
+  min-width: 32px;
+}
+spinbutton button:active:focus, spinbutton button:focus {
+  border-top-color: shade(#cecece, 0.8);
+  border-right-color: shade(#cecece, 0.72);
+  border-bottom-color: shade(#cecece, 0.7);
+  border-left-color: shade(#cecece, 0.72);
+  box-shadow: inset 1px 1px alpha(#FFFFFF,0.4), inset -1px 0 alpha(#FFFFFF,0.4);
+}
+spinbutton:dir(ltr):not(.vertical) button {
+  border-left-width: 0px;
+}
+spinbutton:dir(rtl):not(.vertical) button {
+  border-left-width: 0px;
+}
+spinbutton.vertical entry {
+  min-height: 21px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+.linked:not(.vertical) *:not(:first-child):not(:only-child) spinbutton:dir(ltr) entry, .linked:not(.vertical) spinbutton:not(:first-child):not(:only-child):dir(ltr) entry {
+  border-left-width: 0px;
+}
+.linked:not(.vertical) *:not(:first-child):not(:only-child) spinbutton:dir(rtl) button:first-child, .linked:not(.vertical) spinbutton:not(:first-child):not(:only-child):dir(rtl) button:first-child {
+  border-left-width: 0px;
+}
+.linked.vertical *:not(:first-child):not(:only-child) spinbutton:not(.vertical) button, .linked.vertical *:not(:first-child):not(:only-child) spinbutton:not(.vertical) entry, .linked.vertical spinbutton:not(:first-child):not(:only-child):not(.vertical) button, .linked.vertical spinbutton:not(:first-child):not(:only-child):not(.vertical) entry {
+  border-top-width: 0px;
+}
+.linked.vertical *:not(:first-child):not(:only-child) spinbutton.vertical button:first-child, .linked.vertical spinbutton:not(:first-child):not(:only-child).vertical button:first-child {
+  border-top-width: 0px;
+}
+
+entry, textview, view, .view {
   background-color: #fcfcfc;
   border: 1px solid shade(#cecece, 0.8);
+}
+entry:selected:focus, entry:selected, textview:selected:focus, textview:selected, view:selected:focus, view:selected, .view:selected:focus, .view:selected {
+  background-color: #799ABE;
+  border-color: #799ABE;
+  border-radius: 0px;
+}
+entry:disabled, textview:disabled, view:disabled, .view:disabled {
+  background-color: shade(#fcfcfc, 0.95);
+}
+
+entry, textview, view {
+  padding: 3px;
 }
 
 .view:not(:selected) {
   border: transparent;
+}
+
+treeview {
+  background-color: #fcfcfc;
+}
+treeview header button {
+  min-height: 16px;
+  padding: 4px 5px 3px;
+}
+treeview header button, treeview header button:hover, treeview header button:focus, treeview header button:active, treeview header button:checked, treeview header button:hover:focus, treeview header button:active:focus {
+  background-image: linear-gradient(to bottom, shade(shade(#cecece, 1.14), 0.98), shade(shade(#cecece, 1.14), 1.35));
+  border-color: shade(#cecece, 0.97);
+  border-bottom-color: shade(#cecece, 0.8);
+}
+treeview header button:not(:first-child) {
+  border-left-width: 0px;
+}
+treeview .cell {
+  padding: 2px;
+}
+treeview.view.progressbar {
+  background-image: linear-gradient(to bottom, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
+  background-color: #799ABE;
+  border: 1px solid shade(#799ABE, 0.7);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px rgba(0, 0, 0, 0.2);
+}
+treeview.view.trough {
+  padding: 0px;
+  box-shadow: inset 1px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid shade(#cecece, 0.6);
+  background-color: shade(#cecece, 0.9);
+  background-image: linear-gradient(to bottom, shade(shade(#cecece, 1.05), 0.95), shade(shade(#cecece, 1.05), 1.15));
+}
+treeview.view.trough:selected:focus, treeview.view.trough:selected {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 1px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #799ABE;
 }
 
 toolbar {
@@ -295,25 +357,12 @@ trough {
   background-color: shade(#cecece, 0.9);
   background-image: linear-gradient(to bottom, shade(shade(#cecece, 1.05), 0.95), shade(shade(#cecece, 1.05), 1.15));
 }
-progressbar trough progress {
-  background-image: linear-gradient(to bottom, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
-  border-style: solid;
-  border-width: 1px;
-  border-color: shade(#799ABE, 0.7);
-}
-progressbar.vertical trough {
-  background-image: linear-gradient(to right, shade(shade(#cecece, 1.05), 0.95), shade(shade(#cecece, 1.05), 1.15));
-}
-progressbar.vertical trough progress {
-  background-image: linear-gradient(to right, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
-}
 
 progressbar trough progress {
   background-image: linear-gradient(to bottom, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
   border-style: solid;
   border-width: 1px;
   border-color: shade(#799ABE, 0.7);
-  border: none;
 }
 progressbar.vertical trough {
   background-image: linear-gradient(to right, shade(shade(#cecece, 1.05), 0.95), shade(shade(#cecece, 1.05), 1.15));
@@ -414,6 +463,12 @@ scrollbar.horizontal slider {
   min-width: 40px;
 }
 
+.linked:not(.vertical) *:not(:first-child):not(:only-child) combobox, .linked:not(.vertical) combobox:not(:first-child):not(:only-child) {
+  border-left-width: 0px;
+}
+.linked.vertical *:not(:first-child):not(:only-child) combobox, .linked.vertical combobox:not(:first-child):not(:only-child) {
+  border-top-width: 0px;
+}
 combobox arrow {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
   min-height: 16px;
@@ -430,7 +485,7 @@ frame border {
   border: 1px solid shade(#cecece, 0.7);
 }
 frame border.flat {
-  border: none;
+  border-width: 0px;
 }
 frame label:dir(ltr) {
   padding-right: 5px;
@@ -592,9 +647,7 @@ list row {
   border-top: none;
   border-bottom: none;
   background: shade(#cecece, 1.25);
-}
-list row.sidebar-row {
-  padding: 10px 4px;
+  margin: 0px;
 }
 list row:selected {
   background: linear-gradient(to bottom, #e8e8e8, #dbdbdb);
@@ -604,30 +657,50 @@ list row:hover, list row:active {
   background: linear-gradient(to bottom, #f4f4f4, #eaeaea);
   color: #101010;
 }
+list row.sidebar-row {
+  padding: 10px 4px;
+}
+list row.sidebar-row:selected {
+  background: #799ABE;
+  color: #FFFFFF;
+}
+list row.sidebar-row:hover, list row.sidebar-row:active {
+  background: #799ABE;
+  color: #FFFFFF;
+}
 list row > label {
   margin: 10px 4px;
 }
 
-modelbutton.flat {
+modelbutton.flat, popover.background button {
   min-height: 24px;
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 1px;
   outline-offset: -2px;
 }
-modelbutton.flat:hover {
+modelbutton.flat:hover, popover.background button:hover {
   background-color: shade(#686868, 0.7);
+  box-shadow: none;
+  border-color: shade(#686868, 0.5);
 }
-modelbutton.flat:selected {
-  background-color: #799ABE;
+modelbutton.flat:active, popover.background button:active {
+  background-color: #686868;
+  box-shadow: none;
+  border-color: shade(#686868, 0.5);
 }
-modelbutton.flat check:last-child,
-modelbutton.flat radio:last-child {
+modelbutton.flat:focus, popover.background button:focus, modelbutton.flat:active:focus, popover.background button:active:focus {
+  border-color: none;
+}
+modelbutton.flat check:last-child, popover.background button check:last-child,
+modelbutton.flat radio:last-child,
+popover.background button radio:last-child {
   margin-left: 8px;
   background-image: none;
 }
-modelbutton.flat check:first-child,
-modelbutton.flat radio:first-child {
+modelbutton.flat check:first-child, popover.background button check:first-child,
+modelbutton.flat radio:first-child,
+popover.background button radio:first-child {
   margin-right: 8px;
 }
 
@@ -641,6 +714,9 @@ popover.background {
 }
 popover.background label:disabled {
   color: #1d1d1d;
+}
+popover.background button {
+  min-height: unset;
 }
 popover.background > list,
 popover.background > .view,
@@ -660,4 +736,142 @@ popover.background list separator {
 
 .nemo-window-pane > .view {
   background: shade(#cecece, 1.25);
+}
+
+paned {
+  border-width: 0px;
+}
+
+colorswatch {
+  border: none;
+  border-radius: 2px;
+}
+colorswatch.dark overlay {
+  color: #FFFFFF;
+}
+colorswatch.dark overlay:hover {
+  border-color: rgba(0, 0, 0, 0.8);
+}
+colorswatch.light overlay {
+  color: #000000;
+  background: transparent;
+}
+colorswatch.light overlay:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+colorswatch overlay {
+  box-shadow: inset 0 2px 2px -3px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+}
+colorswatch overlay:hover {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3);
+}
+colorswatch overlay:selected {
+  background: transparent;
+}
+colorswatch:disabled overlay {
+  border-color: rgba(0, 0, 0, 0.6);
+  box-shadow: none;
+}
+
+colorchooser .popover.osd {
+  border-radius: 3px;
+}
+
+filechooser paned box.view {
+  background-color: #cecece;
+}
+
+/***************************
+ * Client Side decorations *
+ ***************************/
+decoration {
+  border-radius: 7px 7px 0px 0px;
+  border-width: 0px;
+  box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.23);
+  margin: 10px;
+}
+
+headerbar {
+  border-radius: 7px 7px 0px 0px;
+  min-height: 32px;
+  padding: 6px;
+  background: #cecece linear-gradient(to bottom, shade(#cecece, 1.07), #cecece);
+  border-bottom: 1px solid shade(#cecece, 0.8);
+}
+headerbar .right {
+  margin-top: -6px;
+  margin-bottom: -6px;
+  margin-right: -6px;
+}
+headerbar .right button:last-child {
+  border-top-right-radius: 7px;
+}
+headerbar .titlebutton.close, headerbar .titlebutton.close:disabled, headerbar .titlebutton.close image, headerbar .titlebutton.close image:disabled, headerbar .titlebutton.minimize, headerbar .titlebutton.minimize:disabled, headerbar .titlebutton.minimize image, headerbar .titlebutton.minimize image:disabled, headerbar .titlebutton.maximize, headerbar .titlebutton.maximize:disabled, headerbar .titlebutton.maximize image, headerbar .titlebutton.maximize image:disabled {
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  color: transparent;
+  min-height: 32px;
+  box-shadow: none;
+  border: none;
+}
+headerbar .titlebutton.close:hover, headerbar .titlebutton.close:selected, headerbar .titlebutton.close:active, headerbar .titlebutton.close:checked, headerbar .titlebutton.close:focus, headerbar .titlebutton.close:hover:focus, headerbar .titlebutton.close:active:focus, headerbar .titlebutton.minimize:hover, headerbar .titlebutton.minimize:selected, headerbar .titlebutton.minimize:active, headerbar .titlebutton.minimize:checked, headerbar .titlebutton.minimize:focus, headerbar .titlebutton.minimize:hover:focus, headerbar .titlebutton.minimize:active:focus, headerbar .titlebutton.maximize:hover, headerbar .titlebutton.maximize:selected, headerbar .titlebutton.maximize:active, headerbar .titlebutton.maximize:checked, headerbar .titlebutton.maximize:focus, headerbar .titlebutton.maximize:hover:focus, headerbar .titlebutton.maximize:active:focus {
+  box-shadow: none;
+  background-image: none;
+  border: none;
+}
+headerbar .titlebutton.close {
+  background-image: url("assets/close-focus-normal.svg");
+}
+headerbar .titlebutton.close:backdrop {
+  background-image: url("assets/close-focus-none.svg");
+}
+headerbar .titlebutton.close:hover {
+  background-image: url("assets/close-focus.svg");
+}
+headerbar .titlebutton.close:active, headerbar .titlebutton.close:active:hover {
+  background-image: url("assets/close-pressed.svg");
+}
+headerbar .titlebutton.minimize {
+  background-image: url("assets/minimize-focus-normal.svg");
+}
+headerbar .titlebutton.minimize:backdrop {
+  background-image: url("assets/minimize-focus-none.svg");
+}
+headerbar .titlebutton.minimize:hover {
+  background-image: url("assets/minimize-focus.svg");
+}
+headerbar .titlebutton.minimize:active, headerbar .titlebutton.minimize:active:hover {
+  background-image: url("assets/minimize-pressed.svg");
+}
+headerbar .titlebutton.maximize {
+  background-image: url("assets/maximize-focus-normal.svg");
+}
+headerbar .titlebutton.maximize:backdrop {
+  background-image: url("assets/maximize-focus-none.svg");
+}
+headerbar .titlebutton.maximize:hover {
+  background-image: url("assets/maximize-focus.svg");
+}
+headerbar .titlebutton.maximize:active, headerbar .titlebutton.maximize:active:hover {
+  background-image: url("assets/maximize-pressed.svg");
+}
+.maximized headerbar {
+  border-radius: 0px;
+}
+.maximized headerbar .right button {
+  margin-top: -1px;
+}
+.maximized headerbar .right button:last-child {
+  border-top-right-radius: 0px;
+}
+.maximized headerbar .left button {
+  margin-top: -1px;
+}
+.maximized headerbar .left button:first-child {
+  border-top-left-radius: 0px;
+}
+headerbar .title {
+  font-weight: bold;
 }
