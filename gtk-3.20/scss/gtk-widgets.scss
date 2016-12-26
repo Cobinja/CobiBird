@@ -145,6 +145,24 @@
   }
 }
 
+.linked {
+  > * {
+    @extend %linked_middle;
+  }
+  &:not(.vertical) > * {
+    @extend %linked;
+    &:not(:first-child):not(:only-child) {
+      border-left-width: 0px;
+    }
+  }
+  &.vertical > * {
+    @extend %linked_vertical;
+    &:not(:first-child):not(:only-child) {
+      border-top-width: 0px;
+    }
+  }
+}
+
 button {
   @extend %extensible_button;
   
@@ -547,9 +565,6 @@ progressbar {
   trough {
     progress {
       background-image: linear_gradient_maybe_vertical($selected_bg_color, 1.05, 0.95, 1.15);
-      border-style: solid;
-      border-width: 1px;
-      border-color: shade($selected_bg_color, 0.7);
     }
   }
   &.vertical {
@@ -557,19 +572,28 @@ progressbar {
       background-image: linear_gradient_maybe_vertical($bg_color, 1.05, 0.95, 1.15, 'horizontal');
       progress {
         background-image: linear_gradient_maybe_vertical($selected_bg_color, 1.05, 0.95, 1.15, 'horizontal');
-        border: none;
       }
     }
   }
 }
 
 levelbar {
+  padding: 0px;
   trough {
+    padding: 0px;
     block {
-      min-height: 9px;
+      background-color: $bg_color;
+      min-height: 3px;
+      margin: 2px;
+      border: 1px solid shade($bg_color, 0.8);
       &.filled {
         background-image: linear_gradient_maybe_vertical($selected_bg_color, 1.05, 0.95, 1.15);
       }
+    }
+  }
+  &.continuous {
+    trough block {
+      margin: 2px 3px;
     }
   }
 }
@@ -577,6 +601,9 @@ levelbar {
 scale {
   min-height: 10px;
   padding: 10px 0px;
+  mark indicator {
+    color: #FF0000;
+  }
   trough {
     min-height: 4px;
     min-width: 4px;
@@ -916,8 +943,6 @@ switch {
 list {
   background: shade($bg_color, 1.25);
   row {
-    border-top: none;
-    border-bottom: none;
     background: shade($bg_color, 1.25);
     margin: 0px;
     
@@ -933,15 +958,23 @@ list {
     
     &.sidebar-row {
       padding: 10px 4px;
+      margin-top: -2px;
+      border-style: solid;
+      border-width: 1px 0px;
+      border-color: transparent;
       
-      &:selected {
+      &:selected, &:hover, &:active {
         background: $selected_bg_color;
         color: $selected_fg_color;
+        border-color: shade($selected_bg_color, 0.8);
       }
-            
+      
       &:hover, &:active {
-        background: $selected_bg_color;
-        color: $selected_fg_color;
+        border-color: $selected_bg_color;
+      }
+      
+      &:first-child {
+        margin-top: -4px;
       }
     }
     

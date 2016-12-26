@@ -83,32 +83,39 @@ button.flat:disabled, modelbutton.flat:disabled, popover.background button:disab
   background-color: rgba(206, 206, 206, 0.2);
 }
 
-.linked:not(.vertical) button, .linked.vertical button, .linked:not(.vertical) spinbutton button, .linked:not(.vertical) spinbutton entry, .linked.vertical spinbutton button, .linked.vertical spinbutton entry, .linked:not(.vertical) combobox > box > button.combo, .linked.vertical combobox > box > button.combo {
+.linked > *, .linked:not(.vertical) button, .linked.vertical button, .linked:not(.vertical) spinbutton button, .linked:not(.vertical) spinbutton entry, .linked.vertical spinbutton button, .linked.vertical spinbutton entry, .linked:not(.vertical) combobox > box > button.combo, .linked.vertical combobox > box > button.combo {
   border-radius: 0px;
 }
 
-.linked:not(.vertical) button:first-child, .linked:not(.vertical) spinbutton:first-child button, .linked:not(.vertical) spinbutton:first-child entry, .linked:not(.vertical) combobox:first-child > box > button.combo {
+.linked:not(.vertical) > :first-child, .linked:not(.vertical) button:first-child, .linked:not(.vertical) spinbutton:first-child button, .linked:not(.vertical) spinbutton:first-child entry, .linked:not(.vertical) combobox:first-child > box > button.combo {
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
 }
-.linked:not(.vertical) button:last-child, .linked:not(.vertical) spinbutton:last-child button, .linked:not(.vertical) spinbutton:last-child entry, .linked:not(.vertical) combobox:last-child > box > button.combo {
+.linked:not(.vertical) > :last-child, .linked:not(.vertical) button:last-child, .linked:not(.vertical) spinbutton:last-child button, .linked:not(.vertical) spinbutton:last-child entry, .linked:not(.vertical) combobox:last-child > box > button.combo {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
 }
-.linked:not(.vertical) button:only-child, .linked:not(.vertical) spinbutton:only-child button, .linked:not(.vertical) spinbutton:only-child entry, .linked:not(.vertical) combobox:only-child > box > button.combo {
+.linked:not(.vertical) > :only-child, .linked:not(.vertical) button:only-child, .linked:not(.vertical) spinbutton:only-child button, .linked:not(.vertical) spinbutton:only-child entry, .linked:not(.vertical) combobox:only-child > box > button.combo {
   border-radius: 2px;
 }
 
-.linked.vertical button:first-child, .linked.vertical spinbutton:first-child button, .linked.vertical spinbutton:first-child entry, .linked.vertical combobox:first-child > box > button.combo {
+.linked.vertical > :first-child, .linked.vertical button:first-child, .linked.vertical spinbutton:first-child button, .linked.vertical spinbutton:first-child entry, .linked.vertical combobox:first-child > box > button.combo {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
-.linked.vertical button:last-child, .linked.vertical spinbutton:last-child > box > button.combo button, .linked.vertical spinbutton:last-child > box > button.combo entry, .linked.vertical combobox:last-child > box > button.combo {
+.linked.vertical > :last-child, .linked.vertical button:last-child, .linked.vertical spinbutton:last-child > box > button.combo button, .linked.vertical spinbutton:last-child > box > button.combo entry, .linked.vertical combobox:last-child > box > button.combo {
   border-bottom-right-radius: 2px;
   border-bottom_left-radius: 2px;
 }
-.linked.vertical button:only-child, .linked.vertical spinbutton:only-child > box > button.combo button, .linked.vertical spinbutton:only-child > box > button.combo entry, .linked.vertical combobox:only-child > box > button.combo {
+.linked.vertical > :only-child, .linked.vertical button:only-child, .linked.vertical spinbutton:only-child > box > button.combo button, .linked.vertical spinbutton:only-child > box > button.combo entry, .linked.vertical combobox:only-child > box > button.combo {
   border-radius: 2px;
+}
+
+.linked:not(.vertical) > *:not(:first-child):not(:only-child) {
+  border-left-width: 0px;
+}
+.linked.vertical > *:not(:first-child):not(:only-child) {
+  border-top-width: 0px;
 }
 
 button.scale, button.link {
@@ -360,28 +367,39 @@ trough {
 
 progressbar trough progress {
   background-image: linear-gradient(to bottom, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
-  border-style: solid;
-  border-width: 1px;
-  border-color: shade(#799ABE, 0.7);
 }
 progressbar.vertical trough {
   background-image: linear-gradient(to right, shade(shade(#cecece, 1.05), 0.95), shade(shade(#cecece, 1.05), 1.15));
 }
 progressbar.vertical trough progress {
   background-image: linear-gradient(to right, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
-  border: none;
 }
 
+levelbar {
+  padding: 0px;
+}
+levelbar trough {
+  padding: 0px;
+}
 levelbar trough block {
-  min-height: 9px;
+  background-color: #cecece;
+  min-height: 3px;
+  margin: 2px;
+  border: 1px solid shade(#cecece, 0.8);
 }
 levelbar trough block.filled {
   background-image: linear-gradient(to bottom, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
+}
+levelbar.continuous trough block {
+  margin: 2px 3px;
 }
 
 scale {
   min-height: 10px;
   padding: 10px 0px;
+}
+scale mark indicator {
+  color: #FF0000;
 }
 scale trough {
   min-height: 4px;
@@ -644,8 +662,6 @@ list {
   background: shade(#cecece, 1.25);
 }
 list row {
-  border-top: none;
-  border-bottom: none;
   background: shade(#cecece, 1.25);
   margin: 0px;
 }
@@ -659,14 +675,21 @@ list row:hover, list row:active {
 }
 list row.sidebar-row {
   padding: 10px 4px;
+  margin-top: -2px;
+  border-style: solid;
+  border-width: 1px 0px;
+  border-color: transparent;
 }
-list row.sidebar-row:selected {
+list row.sidebar-row:selected, list row.sidebar-row:hover, list row.sidebar-row:active {
   background: #799ABE;
   color: #FFFFFF;
+  border-color: shade(#799ABE, 0.8);
 }
 list row.sidebar-row:hover, list row.sidebar-row:active {
-  background: #799ABE;
-  color: #FFFFFF;
+  border-color: #799ABE;
+}
+list row.sidebar-row:first-child {
+  margin-top: -4px;
 }
 list row > label {
   margin: 10px 4px;
