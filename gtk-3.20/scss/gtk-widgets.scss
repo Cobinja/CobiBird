@@ -1227,3 +1227,17 @@ headerbar {
     font-weight: bold;
   }
 }
+
+.app-notification,
+.app-notification.frame {
+  @extend popover.background;
+
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  background-image: linear-gradient(to bottom, transparentize(black, 0.8),
+                                               transparent 2px);
+  background-clip: padding-box;
+  border {
+    border: none;
+  }
+}

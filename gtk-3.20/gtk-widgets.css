@@ -14,7 +14,8 @@ button, switch slider {
   color: #101010;
 }
 
-button.flat, modelbutton.flat, popover.background button {
+button.flat, modelbutton.flat, popover.background button, .app-notification button,
+.app-notification.frame button {
   background-color: transparent;
   background-image: none;
   border-color: transparent;
@@ -22,7 +23,7 @@ button.flat, modelbutton.flat, popover.background button {
   text-shadow: none;
   -gtk-icon-shadow: none;
 }
-button.flat:disabled, modelbutton.flat:disabled, popover.background button:disabled {
+button.flat:disabled, modelbutton.flat:disabled, popover.background button:disabled, .app-notification button:disabled {
   background-color: transparent;
   background-image: none;
   border-color: transparent;
@@ -695,39 +696,43 @@ list row > label {
   margin: 10px 4px;
 }
 
-modelbutton.flat, popover.background button {
+modelbutton.flat, popover.background button, .app-notification button,
+.app-notification.frame button {
   min-height: 24px;
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 1px;
   outline-offset: -2px;
 }
-modelbutton.flat:hover, popover.background button:hover {
+modelbutton.flat:hover, popover.background button:hover, .app-notification button:hover {
   background-color: shade(#686868, 0.7);
   box-shadow: none;
   border-color: shade(#686868, 0.5);
 }
-modelbutton.flat:active, popover.background button:active {
+modelbutton.flat:active, popover.background button:active, .app-notification button:active {
   background-color: #686868;
   box-shadow: none;
   border-color: shade(#686868, 0.5);
 }
-modelbutton.flat:focus, popover.background button:focus, modelbutton.flat:active:focus, popover.background button:active:focus {
+modelbutton.flat:focus, popover.background button:focus, .app-notification button:focus, modelbutton.flat:active:focus, popover.background button:active:focus, .app-notification button:active:focus {
   border-color: none;
 }
-modelbutton.flat check:last-child, popover.background button check:last-child,
+modelbutton.flat check:last-child, popover.background button check:last-child, .app-notification button check:last-child,
 modelbutton.flat radio:last-child,
-popover.background button radio:last-child {
+popover.background button radio:last-child,
+.app-notification button radio:last-child {
   margin-left: 8px;
   background-image: none;
 }
-modelbutton.flat check:first-child, popover.background button check:first-child,
+modelbutton.flat check:first-child, popover.background button check:first-child, .app-notification button check:first-child,
 modelbutton.flat radio:first-child,
-popover.background button radio:first-child {
+popover.background button radio:first-child,
+.app-notification button radio:first-child {
   margin-right: 8px;
 }
 
-popover.background {
+popover.background, .app-notification,
+.app-notification.frame {
   padding: 1px;
   border-radius: 5px;
   color: #FFFFFF;
@@ -735,25 +740,36 @@ popover.background {
   border: 1px solid shade(#686868, 0.7);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
-popover.background label:disabled {
+popover.background label:disabled, .app-notification label:disabled,
+.app-notification.frame label:disabled {
   color: #1d1d1d;
 }
-popover.background button {
+popover.background button, .app-notification button,
+.app-notification.frame button {
   min-height: unset;
 }
-popover.background > list,
+popover.background > list, .app-notification > list,
+.app-notification.frame > list,
 popover.background > .view,
-popover.background > toolbar {
+.app-notification > .view,
+.app-notification.frame > .view,
+popover.background > toolbar,
+.app-notification > toolbar,
+.app-notification.frame > toolbar {
   border-style: none;
   background-color: transparent;
 }
-.csd popover.background.touch-selection, .csd popover.background.magnifier, popover.background.touch-selection, popover.background.magnifier {
+.csd popover.background.touch-selection, .csd .touch-selection.app-notification,
+.csd .touch-selection.app-notification.frame, .csd popover.background.magnifier, .csd .magnifier.app-notification,
+.csd .magnifier.app-notification.frame, popover.background.touch-selection, .touch-selection.app-notification, popover.background.magnifier, .magnifier.app-notification {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-popover.background separator {
+popover.background separator, .app-notification separator,
+.app-notification.frame separator {
   margin: 3px;
 }
-popover.background list separator {
+popover.background list separator, .app-notification list separator,
+.app-notification.frame list separator {
   margin: 0px;
 }
 
@@ -897,4 +913,16 @@ headerbar .titlebutton.maximize:active, headerbar .titlebutton.maximize:active:h
 }
 headerbar .title {
   font-weight: bold;
+}
+
+.app-notification,
+.app-notification.frame {
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 2px);
+  background-clip: padding-box;
+}
+.app-notification border,
+.app-notification.frame border {
+  border: none;
 }
