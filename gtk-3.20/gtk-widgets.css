@@ -106,7 +106,7 @@ button.flat:disabled, modelbutton.flat:disabled, popover.background button:disab
 }
 .linked.vertical > :last-child, .linked.vertical button:last-child, .linked.vertical spinbutton:last-child > box > button.combo button, .linked.vertical spinbutton:last-child > box > button.combo entry, .linked.vertical combobox:last-child > box > button.combo {
   border-bottom-right-radius: 2px;
-  border-bottom_left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 .linked.vertical > :only-child, .linked.vertical button:only-child, .linked.vertical spinbutton:only-child > box > button.combo button, .linked.vertical spinbutton:only-child > box > button.combo entry, .linked.vertical combobox:only-child > box > button.combo {
   border-radius: 2px;
