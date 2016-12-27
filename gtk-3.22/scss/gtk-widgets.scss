@@ -930,6 +930,15 @@ switch {
                 inset -1px 0 gtkalpha($light_shadow, 0.4);
   }
   
+  &:disabled slider {
+    box-shadow: inset 1px 1px gtkalpha($light_shadow, 0.2),
+                inset -1px 0 gtkalpha($light_shadow, 0.2);
+    background-image: linear-gradient(to bottom,
+                                      shade(shade($bg_color, 0.95), 1.05),
+                                      shade(shade($bg_color, 0.95), 0.97));
+    border-color: shade($bg_color, 0.8);
+  }
+  
   &:checked {
     color: white;
     border: 1px solid shade($bg_color, 0.97);

@@ -651,6 +651,11 @@ switch slider {
   border-radius: 2px;
   box-shadow: inset 1px 1px alpha(#FFFFFF,0.4), inset -1px 0 alpha(#FFFFFF,0.4);
 }
+switch:disabled slider {
+  box-shadow: inset 1px 1px alpha(#FFFFFF,0.2), inset -1px 0 alpha(#FFFFFF,0.2);
+  background-image: linear-gradient(to bottom, shade(shade(#cecece, 0.95), 1.05), shade(shade(#cecece, 0.95), 0.97));
+  border-color: shade(#cecece, 0.8);
+}
 switch:checked {
   color: white;
   border: 1px solid shade(#cecece, 0.97);
