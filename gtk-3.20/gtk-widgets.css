@@ -715,7 +715,7 @@ modelbutton.flat:active, popover.background button:active, .app-notification but
   border-color: shade(#686868, 0.5);
 }
 modelbutton.flat:focus, popover.background button:focus, .app-notification button:focus, modelbutton.flat:active:focus, popover.background button:active:focus, .app-notification button:active:focus {
-  border-color: none;
+  border-color: transparent;
 }
 modelbutton.flat check:last-child, popover.background button check:last-child, .app-notification button check:last-child,
 modelbutton.flat radio:last-child,
