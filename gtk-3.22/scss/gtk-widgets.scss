@@ -1045,13 +1045,15 @@ modelbutton.flat {
 popover.background {
   padding: 1px;
   border-radius: 5px;
-  color: $dark_fg_color;
   background-color: $dark_bg_color;
   border: 1px solid shade($dark_bg_color, 0.7);
   box-shadow: 0 1px 2px transparentize(black, 0.7);
-
-  label:disabled {
-    color: mix(darken($dark_fg_color, 10%), darken($dark_bg_color, 30%), 0.4);
+  
+  label {
+    color: $dark_fg_color;
+    &:disabled {
+      color: mix(darken($dark_fg_color, 10%), darken($dark_bg_color, 30%), 0.4);
+    }
   }
   
   button {

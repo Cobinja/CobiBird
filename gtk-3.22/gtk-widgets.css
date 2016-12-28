@@ -752,10 +752,13 @@ popover.background, .app-notification,
 .app-notification.frame {
   padding: 1px;
   border-radius: 5px;
-  color: #FFFFFF;
   background-color: #686868;
   border: 1px solid shade(#686868, 0.7);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+popover.background label, .app-notification label,
+.app-notification.frame label {
+  color: #FFFFFF;
 }
 popover.background label:disabled, .app-notification label:disabled,
 .app-notification.frame label:disabled {
