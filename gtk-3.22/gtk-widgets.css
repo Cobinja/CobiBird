@@ -179,16 +179,28 @@ spinbutton button:active:focus, spinbutton button:focus {
   border-left-color: shade(#cecece, 0.72);
   box-shadow: inset 1px 1px alpha(#FFFFFF,0.4), inset -1px 0 alpha(#FFFFFF,0.4);
 }
-spinbutton:dir(ltr):not(.vertical) button {
+spinbutton:not(.vertical) button {
   border-left-width: 0px;
 }
-spinbutton:dir(rtl):not(.vertical) button {
-  border-left-width: 0px;
+spinbutton:not(.vertical) button.down {
+  border-radius: 0px;
+}
+spinbutton:not(.vertical) button.up {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 spinbutton.vertical entry {
   min-height: 21px;
   border-top-width: 0px;
   border-bottom-width: 0px;
+}
+spinbutton.vertical button.down {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+spinbutton.vertical button.up {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 .linked:not(.vertical) *:not(:first-child):not(:only-child) spinbutton:dir(ltr) entry, .linked:not(.vertical) spinbutton:not(:first-child):not(:only-child):dir(ltr) entry {
   border-left-width: 0px;

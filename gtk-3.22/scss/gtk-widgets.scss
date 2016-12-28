@@ -287,14 +287,16 @@ spinbutton {
     box-shadow: inset 1px 1px gtkalpha($light_shadow, 0.4),
                 inset -1px 0 gtkalpha($light_shadow, 0.4);
   }
-  &:dir(ltr):not(.vertical) {
+  &:not(.vertical) {
     button {
       border-left-width: 0px;
-    }
-  }
-  &:dir(rtl):not(.vertical) {
-    button {
-      border-left-width: 0px;
+      &.down {
+        border-radius: 0px;
+      }
+      &.up {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
     }
   }
   &.vertical {
@@ -302,6 +304,16 @@ spinbutton {
       min-height: 21px;
       border-top-width: 0px;
       border-bottom-width: 0px;
+    }
+    button {
+      &.down {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+      }
+      &.up {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
     }
   }
   
