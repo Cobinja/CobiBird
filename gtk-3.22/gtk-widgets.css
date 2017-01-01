@@ -156,6 +156,9 @@ button:disabled:focus {
 button.combo {
   padding: 3px;
 }
+toolbar button {
+  box-shadow: none;
+}
 .linked:not(.vertical) *:not(:first-child):not(:only-child) button, .linked:not(.vertical) button:not(:first-child):not(:only-child) {
   border-left-width: 0px;
 }

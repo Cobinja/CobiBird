@@ -231,6 +231,10 @@ button {
     padding: 3px;
   }
   
+  toolbar & {
+    box-shadow: none;
+  }
+  
   .linked:not(.vertical) & {
     @extend %linked_middle;
     
