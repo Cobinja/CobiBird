@@ -1,0 +1,20 @@
+
+@import 'colors';
+
+.xfce4-panel {
+  button.toggle {
+    background: shade($dark_bg_color, 0.35);
+    color: shade($base_color, 0.9);
+    border-color: transparent;
+    border-radius: 0px;
+    
+    &:checked {
+      background-color: shade($dark_bg_color, 0.65);
+    }
+    
+    &:hover {
+      background-color: shade($selected_bg_color, 0.85);
+      color: $base_color;
+    }
+  }
+}
