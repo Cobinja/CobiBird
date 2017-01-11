@@ -1,13 +1,16 @@
-.xfce4-panel button.toggle {
+.xfce4-panel.background {
   background: shade(#686868, 0.35);
+}
+.xfce4-panel.background button.toggle {
+  background: transparent;
   color: shade(#fcfcfc, 0.9);
   border-color: transparent;
   border-radius: 0px;
 }
-.xfce4-panel button.toggle:checked {
+.xfce4-panel.background button.toggle:checked {
   background-color: shade(#686868, 0.65);
 }
-.xfce4-panel button.toggle:hover {
+.xfce4-panel.background button.toggle:hover {
   background-color: shade(#799ABE, 0.85);
   color: #fcfcfc;
 }

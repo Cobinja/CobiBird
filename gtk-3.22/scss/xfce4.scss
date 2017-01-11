@@ -1,9 +1,10 @@
 
 @import 'colors';
 
-.xfce4-panel {
+.xfce4-panel.background {
+  background: shade($dark_bg_color, 0.35);
   button.toggle {
-    background: shade($dark_bg_color, 0.35);
+    background: transparent;
     color: shade($base_color, 0.9);
     border-color: transparent;
     border-radius: 0px;
