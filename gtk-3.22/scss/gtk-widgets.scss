@@ -1151,10 +1151,19 @@ decoration {
   box-shadow: 0 3px 9px 1px transparentize(black, 0.5),
               0 0 0 1px transparentize(black, 0.77);
   margin: 10px;
+  
+  .solid-csd & {
+    box-shadow: none;
+    margin: 0px;
+    border-radius: 0px;
+  }
 }
 
 headerbar {
   border-radius: 7px 7px 0px 0px;
+  .solid-csd & {
+    border-radius: 0px;
+  }
   min-height: 32px;
   padding: 6px;
   background: $bg_color linear-gradient(to bottom, shade($bg_color, 1.07), $bg_color);
