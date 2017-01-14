@@ -510,17 +510,30 @@ separator {
   min-height: 1px;
 }
 
-frame border {
+frame > border, .frame {
   border: 1px solid shade(#cecece, 0.7);
 }
-frame border.flat {
+frame > border.flat, frame > border frame > border, frame > border .frame, .frame.flat, .frame frame > border, .frame .frame {
   border-width: 0px;
 }
+
 frame label:dir(ltr) {
   padding-right: 5px;
 }
 frame label:dir(rtl) {
   padding-left: 5px;
+}
+
+scrolledwindow viewport.frame {
+  border-style: none;
+}
+scrolledwindow junction {
+  border-color: transparent;
+  border-image: linear-gradient(to bottom, shade(#cecece, 0.8) 1px, transparent 1px) 0 0 0 1/0 1px stretch;
+  background-color: #a8a8a8;
+}
+scrolledwindow junction:dir(rtl) {
+  border-image-slice: 0 1 0 0;
 }
 
 notebook.frame {

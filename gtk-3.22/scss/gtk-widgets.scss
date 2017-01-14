@@ -763,19 +763,34 @@ separator {
   min-height: 1px;
 }
 
-frame {
-  border {
-    border: 1px solid shade($bg_color, 0.7);
-    &.flat {
-      border-width: 0px;
-    }
+frame > border, .frame {
+  border: 1px solid shade($bg_color, 0.7);
+  &.flat, frame > border, .frame {
+    border-width: 0px;
   }
-  label {
-    &:dir(ltr) {
-      padding-right: 5px;
-    }
+}
+
+frame label {
+  &:dir(ltr) {
+    padding-right: 5px;
+  }
+  &:dir(rtl) {
+    padding-left: 5px;
+  }
+}
+
+scrolledwindow {
+  viewport.frame { // avoid double borders when viewport inside scrolled window
+    border-style: none;
+  }
+  junction { // the small square between two scrollbars
+    border-color: transparent;
+    // the border image is used to add the missing dot between the borders, details, details, details...
+    border-image: linear-gradient(to bottom, shade($bg_color, 0.8) 1px, transparent 1px) 0 0 0 1 / 0 1px stretch;
+    background-color: mix($bg_color, $fg_color, 80%);
+
     &:dir(rtl) {
-      padding-left: 5px;
+      border-image-slice: 0 1 0 0;
     }
   }
 }
