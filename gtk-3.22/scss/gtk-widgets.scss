@@ -427,6 +427,7 @@ treeview {
                                     shade(shade($bg_color, 1.14), 1.35));
       border-color: shade($bg_color, 0.97);
       border-bottom-color: shade($bg_color, 0.8);
+      border-radius: 0px;
     }
     
     &:not(:first-child) {

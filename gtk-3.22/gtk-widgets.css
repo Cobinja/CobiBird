@@ -245,6 +245,7 @@ treeview header button, treeview header button:hover, treeview header button:foc
   background-image: linear-gradient(to bottom, shade(shade(#cecece, 1.14), 0.98), shade(shade(#cecece, 1.14), 1.35));
   border-color: shade(#cecece, 0.97);
   border-bottom-color: shade(#cecece, 0.8);
+  border-radius: 0px;
 }
 treeview header button:not(:first-child) {
   border-left-width: 0px;
