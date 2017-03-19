@@ -114,6 +114,10 @@ button.flat:disabled, modelbutton.flat:disabled, popover.background button:disab
   border-top-width: 0px;
 }
 
+toolbar {
+  background-color: #cecece;
+}
+
 button.scale, button.link {
   border-color: transparent;
   background: transparent;
@@ -228,6 +232,15 @@ entry:disabled, textview:disabled, view:disabled, .view:disabled {
 
 entry, textview, view {
   padding: 3px;
+}
+
+entry image.left {
+  margin-left: 0px;
+  margin-right: 6px;
+}
+entry image.right {
+  margin-left: 6px;
+  margin-right: 0px;
 }
 
 .view:not(:selected) {
@@ -511,18 +524,21 @@ separator {
   min-height: 1px;
 }
 
-frame > border, .frame {
+frame > border, .frame > border {
   border: 1px solid shade(#cecece, 0.7);
 }
-frame > border.flat, frame > border frame > border, frame > border .frame, .frame.flat, .frame frame > border, .frame .frame {
+frame.flat > border, .frame.flat > border {
   border-width: 0px;
 }
-
-frame label:dir(ltr) {
+frame label:dir(ltr), .frame label:dir(ltr) {
   padding-right: 5px;
 }
-frame label:dir(rtl) {
+frame label:dir(rtl), .frame label:dir(rtl) {
   padding-left: 5px;
+}
+
+frame > border.flat, frame > border frame > border, frame > border .frame, .frame.flat, .frame frame > border, .frame .frame, frame.flat, frame frame > border, frame .frame {
+  border-width: 0px;
 }
 
 scrolledwindow viewport.frame {
