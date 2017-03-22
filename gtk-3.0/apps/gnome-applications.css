@@ -47,12 +47,9 @@ PanelAppletFrame {
 }
 
 PanelApplet .button {
-    -GtkButton-inner-border: 2;
-
     background-image: -gtk-gradient(linear, left top, left bottom,
                                      from (shade(@theme_bg_color, 1.5)),
                                      to (shade(@theme_bg_color, 1.05)));
-
     border-color: shade(@theme_bg_color, 0.7);
     border-radius: 0;
     border-width: 0 1px 0 1px;
@@ -62,7 +59,7 @@ PanelApplet .button {
     box-shadow: none;
 }
 
-PanelApplet .button:prelight:active,
+PanelApplet .button:hover:active,
 PanelApplet .button:active {
     background-image: -gtk-gradient(linear, left top, left bottom,
                                      from (shade(@theme_bg_color, 0.85)),
@@ -73,7 +70,7 @@ PanelApplet .button:active {
     border-width: 0 1px 0 1px;
 }
 
-PanelApplet .button:prelight {
+PanelApplet .button:hover {
     background-image: -gtk-gradient(linear, left top, left bottom,
                                      from (shade(@theme_bg_color, 1.7)),
                                      to (shade(@theme_bg_color, 1.25)));
@@ -116,7 +113,7 @@ WnckPager, WnckTasklist {
 }
 
 .nautilus-desktop.nautilus-canvas-item:active,
-.nautilus-desktop.nautilus-canvas-item:prelight,
+.nautilus-desktop.nautilus-canvas-item:hover,
 .nautilus-desktop.nautilus-canvas-item:selected {
     text-shadow: none;
 }
@@ -197,10 +194,15 @@ TerminalScreen {
     color: @theme_fg_color;
 }
 
-TerminalWindow GtkNotebook.notebook {
+terminal-window notebook stack {
     border-bottom-width: 0;
     border-right-width: 0;
     border-left-width: 0;
+}
+
+terminal-window notebook tab button {
+  padding: 5px;
+  margin: -5px;
 }
 
 /***********************
