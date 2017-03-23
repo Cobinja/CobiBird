@@ -524,21 +524,18 @@ separator {
   min-height: 1px;
 }
 
-frame > border, .frame > border {
+frame > border, .frame {
   border: 1px solid shade(#cecece, 0.7);
 }
-frame.flat > border, .frame.flat > border {
+frame > border.flat, .frame.flat {
   border-width: 0px;
-}
-frame label:dir(ltr), .frame label:dir(ltr) {
-  padding-right: 5px;
-}
-frame label:dir(rtl), .frame label:dir(rtl) {
-  padding-left: 5px;
 }
 
-frame > border.flat, frame > border frame > border, frame > border .frame, .frame.flat, .frame frame > border, .frame .frame, frame.flat, frame frame > border, frame .frame {
-  border-width: 0px;
+frame > label:dir(ltr) {
+  padding-right: 5px;
+}
+frame > label:dir(rtl) {
+  padding-left: 5px;
 }
 
 scrolledwindow viewport.frame {
