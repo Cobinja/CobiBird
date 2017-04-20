@@ -79,31 +79,31 @@ button.flat:disabled, modelbutton.flat:disabled, popover.background button:disab
   background-color: rgba(206, 206, 206, 0.2);
 }
 
-.linked > *, .linked:not(.vertical) button, .linked.vertical button, .linked:not(.vertical) spinbutton button, .linked:not(.vertical) spinbutton entry, .linked.vertical spinbutton button, .linked.vertical spinbutton entry, .linked:not(.vertical) combobox > box > button.combo, .linked.vertical combobox > box > button.combo {
+.linked > *, .inline-toolbar:not(.vertical) button, .linked:not(.vertical) button, .inline-toolbar.vertical button, .linked.vertical button, .linked:not(.vertical) spinbutton button, .linked:not(.vertical) spinbutton entry, .linked.vertical spinbutton button, .linked.vertical spinbutton entry, .linked:not(.vertical) combobox > box > button.combo, .linked.vertical combobox > box > button.combo {
   border-radius: 0px;
 }
 
-.linked:not(.vertical) > :first-child, .linked:not(.vertical) button:first-child, .linked:not(.vertical) spinbutton:first-child button, .linked:not(.vertical) spinbutton:first-child entry, .linked:not(.vertical) combobox:first-child > box > button.combo {
+.linked:not(.vertical) > :first-child, .inline-toolbar:not(.vertical) button:first-child, .linked:not(.vertical) button:first-child, .linked:not(.vertical) spinbutton:first-child button, .linked:not(.vertical) spinbutton:first-child entry, .linked:not(.vertical) combobox:first-child > box > button.combo {
   border-bottom-left-radius: 2px;
   border-top-left-radius: 2px;
 }
-.linked:not(.vertical) > :last-child, .linked:not(.vertical) button:last-child, .linked:not(.vertical) spinbutton:last-child button, .linked:not(.vertical) spinbutton:last-child entry, .linked:not(.vertical) combobox:last-child > box > button.combo {
+.linked:not(.vertical) > :last-child, .inline-toolbar:not(.vertical) button:last-child, .linked:not(.vertical) button:last-child, .linked:not(.vertical) spinbutton:last-child button, .linked:not(.vertical) spinbutton:last-child entry, .linked:not(.vertical) combobox:last-child > box > button.combo {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
 }
-.linked:not(.vertical) > :only-child, .linked:not(.vertical) button:only-child, .linked:not(.vertical) spinbutton:only-child button, .linked:not(.vertical) spinbutton:only-child entry, .linked:not(.vertical) combobox:only-child > box > button.combo {
+.linked:not(.vertical) > :only-child, .inline-toolbar:not(.vertical) button:only-child, .linked:not(.vertical) button:only-child, .linked:not(.vertical) spinbutton:only-child button, .linked:not(.vertical) spinbutton:only-child entry, .linked:not(.vertical) combobox:only-child > box > button.combo {
   border-radius: 2px;
 }
 
-.linked.vertical > :first-child, .linked.vertical button:first-child, .linked.vertical spinbutton:first-child button, .linked.vertical spinbutton:first-child entry, .linked.vertical combobox:first-child > box > button.combo {
+.linked.vertical > :first-child, .inline-toolbar.vertical button:first-child, .linked.vertical button:first-child, .linked.vertical spinbutton:first-child button, .linked.vertical spinbutton:first-child entry, .linked.vertical combobox:first-child > box > button.combo {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
-.linked.vertical > :last-child, .linked.vertical button:last-child, .linked.vertical spinbutton:last-child > box > button.combo button, .linked.vertical spinbutton:last-child > box > button.combo entry, .linked.vertical combobox:last-child > box > button.combo {
+.linked.vertical > :last-child, .inline-toolbar.vertical button:last-child, .linked.vertical button:last-child, .linked.vertical spinbutton:last-child > box > button.combo button, .linked.vertical spinbutton:last-child > box > button.combo entry, .linked.vertical combobox:last-child > box > button.combo {
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
 }
-.linked.vertical > :only-child, .linked.vertical button:only-child, .linked.vertical spinbutton:only-child > box > button.combo button, .linked.vertical spinbutton:only-child > box > button.combo entry, .linked.vertical combobox:only-child > box > button.combo {
+.linked.vertical > :only-child, .inline-toolbar.vertical button:only-child, .linked.vertical button:only-child, .linked.vertical spinbutton:only-child > box > button.combo button, .linked.vertical spinbutton:only-child > box > button.combo entry, .linked.vertical combobox:only-child > box > button.combo {
   border-radius: 2px;
 }
 
@@ -160,10 +160,10 @@ button.combo {
 toolbar button {
   box-shadow: none;
 }
-.linked:not(.vertical) *:not(:first-child):not(:only-child) button, .linked:not(.vertical) button:not(:first-child):not(:only-child) {
+.inline-toolbar:not(.vertical) *:not(:first-child):not(:only-child) button, .inline-toolbar:not(.vertical) button:not(:first-child):not(:only-child), .linked:not(.vertical) *:not(:first-child):not(:only-child) button, .linked:not(.vertical) button:not(:first-child):not(:only-child) {
   border-left-width: 0px;
 }
-.linked.vertical *:not(:first-child):not(:only-child) button, .linked.vertical button:not(:first-child):not(:only-child) {
+.inline-toolbar.vertical *:not(:first-child):not(:only-child) button, .inline-toolbar.vertical button:not(:first-child):not(:only-child), .linked.vertical *:not(:first-child):not(:only-child) button, .linked.vertical button:not(:first-child):not(:only-child) {
   border-top-width: 0px;
 }
 
@@ -421,7 +421,7 @@ levelbar.continuous trough block {
 
 scale {
   min-height: 10px;
-  padding: 10px 0px;
+  padding: 7px 0px;
 }
 scale mark indicator {
   color: #FF0000;
@@ -445,7 +445,7 @@ scale highlight {
   background-image: linear-gradient(to bottom, shade(shade(#799ABE, 1.05), 0.95), shade(shade(#799ABE, 1.05), 1.15));
 }
 scale.vertical {
-  padding: 0px 10px;
+  padding: 0px 7px;
 }
 scale.vertical trough {
   background-image: linear-gradient(to right, shade(shade(#cecece, 1.05), 0.95), shade(shade(#cecece, 1.05), 1.15));
