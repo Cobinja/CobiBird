@@ -39,8 +39,6 @@ button.flat:disabled, modelbutton.flat:disabled, popover.background button:disab
   border-radius: 1px;
   text-shadow: none;
   -GtkArrow-arrow-scaling: 0.5;
-  -GtkCheckMenuItem-indicator-size: 12;
-  -GtkExpander-expander-size: 12;
   -GtkHTML-link-color: #2c82dd;
   -GtkIMHtml-hyperlink-color: #2c82dd;
   -GtkMenuBar-internal-padding: 0;
