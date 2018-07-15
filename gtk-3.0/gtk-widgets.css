@@ -1,5 +1,25 @@
 /* NOTES to contributors:
  * use 2 spaces indents, and keep code ALIGNED and ORDERED */
+/*
+ * Public colors
+ */
+@define-color theme_fg_color #101010;
+@define-color theme_text_color #000000;
+@define-color theme_bg_color #cecece;
+@define-color theme_base_color #fcfcfc;
+@define-color theme_selected_bg_color #799ABE;
+@define-color theme_selected_fg_color #FFFFFF;
+@define-color fg_color #101010;
+@define-color text_color #000000;
+@define-color bg_color #cecece;
+@define-color base_color #fcfcfc;
+@define-color selected_bg_color #799ABE;
+@define-color selected_fg_color #FFFFFF;
+@define-color theme_unfocused_fg_color #101010;
+@define-color theme_unfocused_text_color #000000;
+@define-color theme_unfocused_bg_color #cecece;
+@define-color theme_unfocused_base_color #fcfcfc;
+@define-color content_view_bg #fcfcfc;
 button, switch slider {
   padding: 5px;
   box-shadow: inset 1px 1px alpha(#FFFFFF,0.4), inset -1px 0 alpha(#FFFFFF,0.4);

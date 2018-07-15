@@ -1,3 +1,23 @@
+/*
+ * Public colors
+ */
+@define-color theme_fg_color #101010;
+@define-color theme_text_color #000000;
+@define-color theme_bg_color #cecece;
+@define-color theme_base_color #fcfcfc;
+@define-color theme_selected_bg_color #799ABE;
+@define-color theme_selected_fg_color #FFFFFF;
+@define-color fg_color #101010;
+@define-color text_color #000000;
+@define-color bg_color #cecece;
+@define-color base_color #fcfcfc;
+@define-color selected_bg_color #799ABE;
+@define-color selected_fg_color #FFFFFF;
+@define-color theme_unfocused_fg_color #101010;
+@define-color theme_unfocused_text_color #000000;
+@define-color theme_unfocused_bg_color #cecece;
+@define-color theme_unfocused_base_color #fcfcfc;
+@define-color content_view_bg #fcfcfc;
 .xfce4-panel.background {
   background: shade(#686868, 0.35);
 }
