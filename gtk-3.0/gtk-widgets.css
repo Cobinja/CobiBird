@@ -51,6 +51,10 @@ button.flat:disabled, modelbutton.flat:disabled, popover.background button:disab
   text-shadow: none;
   -gtk-icon-shadow: none;
 }
+button.flat:focus, modelbutton.flat:focus, popover.background button:focus, .app-notification button:focus, button.flat:hover:focus, modelbutton.flat:hover:focus, popover.background button:hover:focus, .app-notification button:hover:focus, button.flat:active:focus, modelbutton.flat:active:focus, popover.background button:active:focus, .app-notification button:active:focus {
+  border-color: transparent;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0), 0 1px rgba(255, 255, 255, 0);
+}
 
 * {
   background-clip: padding-box;
@@ -130,10 +134,6 @@ button.flat:disabled, modelbutton.flat:disabled, popover.background button:disab
 }
 .linked.vertical > *:not(:first-child):not(:only-child) {
   border-top-width: 0px;
-}
-
-toolbar {
-  background-color: #cecece;
 }
 
 button.scale, button.link {
@@ -307,6 +307,7 @@ treeview.view.trough:selected:focus, treeview.view.trough:selected {
 
 toolbar {
   padding: 2px;
+  background-color: #cecece;
 }
 
 /********
