@@ -303,7 +303,6 @@ style "menubar" = "menu"
 	bg[NORMAL]	= @bg_color
   bg[SELECTED]	= shade (0.7, @bg_color_dark)
   fg[NORMAL] = @fg_color
-  fg[PRELIGHT] = @fg_color
 	
 	engine "murrine"
 	{
